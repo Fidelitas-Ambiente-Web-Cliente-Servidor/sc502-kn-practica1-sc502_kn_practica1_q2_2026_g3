@@ -1,0 +1,35 @@
+@import url(./style.css);
+
+.bg-body-tertiary {
+    background-color: var(--color-base) !important;
+}
+
+.nav-link {
+    color: var(--color-prymary)
+}
+
+.nav-link:hover {
+    color: var(--color-ternary)
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.me-auto {
+    margin-right: 3rem !important;
+}
+
+.form-control {
+    border-radius: 1rem;
+    border 1px solid var(--color-border-gray);
+    color: transparent;
+    background: transparent;
+}
