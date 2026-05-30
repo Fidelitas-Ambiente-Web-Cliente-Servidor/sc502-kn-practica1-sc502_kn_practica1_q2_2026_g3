@@ -29,7 +29,28 @@
 
 .form-control {
     border-radius: 1rem;
-    border 1px solid var(--color-border-gray);
-    color: transparent;
+    border: 1px solid var(--color-border-gray);
+    color: var(--color-prymary);
     background: transparent;
+}
+
+.form-control::placeholder {
+    color: var(--color-border-gray);
+}
+
+.form-control:focus {
+    background: transparent;
+    color: var(--color-prymary);
+    box-shadow: 0 0 0 0.25rem #1a80d96c;
+}
+
+.btn-outline-success {
+    border: 1px solid var(--color-prymary);
+    color: var(--color-prymary);
+}
+
+.btn-outline-success:hover {
+    background-color: var(--color-ternary);
+    color: var(--color-base);
+    
 }

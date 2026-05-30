@@ -1,0 +1,123 @@
+@import url(./style.css);
+
+.container-principal {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-logo-principal {
+    position: relative;
+}
+
+.sombra-logo-principal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #05f2dafb, #030a8c 85%);
+    border-radius: 50%;
+    filter: blur(30px);
+    z-index: -1;
+}
+
+.logo-principal {
+    width: 50vw;
+}
+
+.logo-principal-texto {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-principal-texto1 {
+    font-size: 2.45rem;
+    font-weight: 800;
+    margin: 0;
+    background: -webkit-linear-gradient(120deg, #05f2db, #030a8c);
+    background: linear-gradient(120deg, #05f2db, #030a8c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-principal-texto2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 0.9;
+    background: -webkit-linear-gradient(120deg, #05f2db, #030a8c);
+    background: linear-gradient(120deg, #05f2db, #030a8c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-principal-texto3 {
+    color: white;
+    font-weight: 800;
+    margin-top: 0.2rem;
+}
+
+.container-iconos {
+    margin: 4rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    justify-content: center;
+}
+
+.tarjeta-iconos {
+    background-color: var(--color-gray);
+    margin: 0.5rem;
+}
+
+.icono {
+    width: 20vw;
+}
+
+
+
+.container-lema {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lema1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    line-height: 0.9;
+}
+
+.lema2 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-gray);
+    margin-top: 2rem;
+}
+
+/*============================================================================================
+                            Móviles en horizontal o tablets en vertical
+=============================================================================================*/
+
+@media (max-width: 768px) {}
+
+/*============================================================================================
+                            Tablets en horizonal y escritorios normales
+============================================================================================*/
+
+@media (min-width: 769px) and (max-width: 1024px) {}
+
+/*============================================================================================
+                                    Escritorios grandes
+=============================================================================================*/
+@media (min-width: 1025px) {}
