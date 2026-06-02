@@ -80,7 +80,7 @@ body {
     grid-template-columns: repeat(1, 1fr);
     grid-auto-flow: dense;
     place-items: center;
-    gap: 50px ;
+    gap: 50px;
     width: 80%;
 }
 
@@ -103,4 +103,30 @@ body {
     font-weight: bold;
     color: var(--color-ternary);
     text-align: center;
+}
+
+.container-footer {
+    width: 100%;
+    background-color: var(--color-ternary);
+    gap: 1rem;
+}
+
+.contacto-footer{
+    margin: 0;
+}
+
+.container-footer>ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    padding: 0;
+    margin: 0
+}
+
+.container-icono-footer {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
 }
