@@ -54,8 +54,8 @@
                         <a class="nav-link" href="./contacto.html">Contacto</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar curso"
+                <form id="formBuscarCursos" class="d-flex" role="search">
+                    <input id="buscarCurso" class="form-control me-2" type="search" placeholder="Buscar curso"
                         aria-label="Buscar curso">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
@@ -71,78 +71,27 @@
                 programacion.
             </p>
         </header>
-        <section class="mb-5">
-            <h2>Desarrollo Web</h2>
+        <section class="mb-4">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <article class="curso">
-                        <img src="./images/logo1.png" alt="Curso HTML y CSS">
-                        <h3>HTML y CSS</h3>
-                        <p class="categoria">Categoria: Desarrollo Web</p>
-                        <p>Aprende a crear paginas web basicas usando estructura y estilos.</p>
-                        <p>Duracion: 6 semanas</p>
-                        <p class="precio">Precio: $120</p>
-                    </article>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <article class="curso">
-                        <img src="./images/logo1.1.png" alt="Curso Bootstrap">
-                        <h3>Bootstrap Basico</h3>
-                        <p class="categoria">Categoria: Desarrollo Web</p>
-                        <p>Conoce el sistema de grillas para ordenar contenido responsive.</p>
-                        <p>Duracion: 4 semanas</p>
-                        <p class="precio">Precio: $95</p>
-                    </article>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <article class="curso">
-                        <img src="./images/logotitle.png" alt="Curso JavaScript">
-                        <h3>JavaScript Inicial</h3>
-                        <p class="categoria">Categoria: Desarrollo Web</p>
-                        <p>Introduce funciones, eventos y logica sencilla para sitios web.</p>
-                        <p>Duracion: 7 semanas</p>
-                        <p class="precio">Precio: $145</p>
-                    </article>
+                <div class="col-12 col-md-6 mb-3">
+                    <select id="filtroCategoria" class="form-select">
+                        <option value="Todas">Todas las categorias</option>
+                        <option value="Desarrollo Web">Desarrollo Web</option>
+                        <option value="Programacion">Programacion</option>
+                        <option value="Datos">Datos</option>
+                        <option value="Seguridad">Seguridad</option>
+                    </select>
                 </div>
             </div>
+            <p id="mensajeCursos" class="mensaje-cursos"></p>
         </section>
         <section>
-            <h2>Programacion y Datos</h2>
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <article class="curso">
-                        <img src="./images/logo1 copida.PNG" alt="Curso Python">
-                        <h3>Python Inicial</h3>
-                        <p class="categoria">Categoria: Programacion</p>
-                        <p>Aprende variables, ciclos, condicionales y ejercicios basicos.</p>
-                        <p>Duracion: 8 semanas</p>
-                        <p class="precio">Precio: $160</p>
-                    </article>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <article class="curso">
-                        <img src="./images/AdobeColor-Mi tema de color.jpeg" alt="Curso SQL">
-                        <h3>Bases de Datos SQL</h3>
-                        <p class="categoria">Categoria: Datos</p>
-                        <p>Aprende a crear tablas y consultas para guardar informacion.</p>
-                        <p>Duracion: 6 semanas</p>
-                        <p class="precio">Precio: $135</p>
-                    </article>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <article class="curso">
-                        <img src="./images/logo1.png" alt="Curso seguridad">
-                        <h3>Seguridad Digital</h3>
-                        <p class="categoria">Categoria: Seguridad</p>
-                        <p>Conoce conceptos basicos para navegar y proteger datos.</p>
-                        <p>Duracion: 5 semanas</p>
-                        <p class="precio">Precio: $130</p>
-                    </article>
-                </div>
-            </div>
+            <h2>Catalogo de Cursos</h2>
+            <div id="listaCursos" class="row"></div>
         </section>
         
     </main>
+    <script src="./js/cursos.js"></script>
 </body>
 
 </html>

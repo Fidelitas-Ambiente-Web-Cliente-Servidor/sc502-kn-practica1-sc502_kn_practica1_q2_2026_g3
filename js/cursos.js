@@ -69,3 +69,44 @@ document.addEventListener("DOMContentLoaded", function () {
         filtrarCursos();
     });
 });
+
+function mostrarCursos(listaCursos) {
+    const contenedor = document.getElementById("listaCursos");
+    const mensaje = document.getElementById("mensajeCursos");
+
+    contenedor.innerHTML = "";
+    mensaje.innerText = "";
+
+    if (listaCursos.length == 0) {
+        mensaje.innerText = "No se encontraron cursos.";
+    }
+
+    listaCursos.map(function (curso) {
+        contenedor.innerHTML += `
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <article class="curso">
+                    <img src="${curso.imagen}" alt="Curso ${curso.nombre}">
+                    <h3>${curso.nombre}</h3>
+                    <p class="categoria">Categoria: ${curso.categoria}</p>
+                    <p>${curso.descripcion}</p>
+                    <p>Duracion: ${curso.duracion}</p>
+                    <p class="precio">Precio: ${curso.precio}</p>
+                </article>
+            </div>
+        `;
+    });
+}
+
+function filtrarCursos() {
+    const texto = document.getElementById("buscarCurso").value.toLowerCase();
+    const categoria = document.getElementById("filtroCategoria").value;
+
+    const cursosFiltrados = cursos.filter(function (curso) {
+        const coincideTexto = curso.nombre.toLowerCase().includes(texto) || curso.descripcion.toLowerCase().includes(texto);
+        const coincideCategoria = categoria == "Todas" || curso.categoria == categoria;
+
+        return coincideTexto && coincideCategoria;
+    });
+
+    mostrarCursos(cursosFiltrados);
+}

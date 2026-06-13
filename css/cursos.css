@@ -42,3 +42,8 @@ h1, h2 {
     color: var(--color-ternary);
     font-weight: bold;
 }
+
+.mensaje-cursos {
+    color: var(--color-ternary);
+    font-weight: bold;
+}
