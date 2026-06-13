@@ -1,0 +1,80 @@
+main {
+    color: white;
+}
+
+/* Título */
+h1, h2 {
+    color: var(--color-ternary);
+}
+
+/* Descripción del header */
+.descripcion {
+    max-width: 750px;
+    color: #dddddd;
+}
+
+/* Contenedor del formulario */
+.contact-form {
+    background-color: #161616;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border-gray);
+}
+
+/* Inputs */
+.contact-form .form-control {
+    background-color: transparent;
+    border: 1px solid var(--color-border-gray);
+    color: white;
+}
+
+.contact-form .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(5, 242, 218, 0.25);
+}
+
+/* Labels */
+.contact-form .form-label {
+    color: #dddddd;
+}
+
+/* Botón */
+.contact-form button {
+    background-color: var(--color-ternary);
+    border: none;
+    color: black;
+    font-weight: bold;
+}
+
+.contact-form button:hover {
+    background-color: var(--color-prymary);
+    color: white;
+}
+
+/* Información de contacto */
+.contact-info {
+    margin-top: 40px;
+}
+
+.contact-info p {
+    color: #dddddd;
+}
+
+/* Mapa */
+.map-container h2 {
+    margin-top: 40px;
+}
+
+.map {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+main{
+    flex:1;
+}
