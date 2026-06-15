@@ -1,0 +1,389 @@
+@import url(./style.css);
+
+.container-principal {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-logo-principal {
+    position: relative;
+}
+
+.sombra-logo-principal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #05f2dafb, #030a8c 85%);
+    border-radius: 50%;
+    filter: blur(30px);
+    z-index: -1;
+}
+
+.logo-principal {
+    width: 50vw;
+}
+
+.logo-principal-texto {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-principal-texto1 {
+    font-size: 2.45rem;
+    font-weight: 800;
+    margin: 0;
+    background: -webkit-linear-gradient(120deg, #05f2db, #030a8c);
+    background: linear-gradient(120deg, #05f2db, #030a8c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-principal-texto2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 0.9;
+    background: -webkit-linear-gradient(120deg, #05f2db, #030a8c);
+    background: linear-gradient(120deg, #05f2db, #030a8c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo-principal-texto3 {
+    color: white;
+    font-weight: 800;
+    margin-top: 0.2rem;
+}
+
+.container-iconos {
+    margin: 4rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    justify-content: center;
+}
+
+.tarjeta-iconos {
+    background-color: var(--color-gray);
+    margin: 0.5rem;
+    width: 20%;
+}
+
+.icono {
+    width: 100%;
+}
+
+.container-lema {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lema1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    line-height: 0.9;
+}
+
+.lema2 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-gray);
+}
+
+.titulo-cursos {
+    margin: 4rem 0 2rem 0;
+}
+
+.tarjeta-curso {
+    margin: 2rem 1rem;
+    box-shadow: 0 4px 18px var(--color-ternary);
+    transition: box-shadow 0.3s ease;
+}
+
+.tarjeta-curso:hover {
+    box-shadow: 0 4px 18px var(--color-prymary);
+}
+
+.logo-curso {
+    width: 30%;
+}
+
+.curso-titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-prymary);
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.curso-descripcion {
+    text-align: center;
+    color: var(--color-gray);
+    color: white;
+    margin-top: 0.5rem;
+}
+
+.boton-curso {
+    margin-top: 1.5rem;
+}
+
+.titulo-estadisticas {
+    margin-top: 4rem;
+}
+
+.numero-estadistica {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+    color: var(--color-prymary);
+}
+
+.estadisticas-profesores, .estadisticas-cursos, .estadisticas-estudiantes {
+    flex-direction: column-reverse;
+    border: none;
+    padding: 1rem;
+}
+
+.luz-estadistica {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid var(--color-prymary);
+    border-radius: 100%;
+    transform: scale(0.7);
+}
+
+.estadisticas-titulo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+.titulo-testimonios {
+    margin: 4rem 0 2rem 0;
+}
+
+.tarjeta-estudiante {
+    /* border: none; */
+    position: relative;
+    box-shadow: 0 10px 30px var(--color-gray);
+}
+
+.imagen-estudiante {
+    width: 70%;
+    border-radius: 5%;
+
+}
+
+.nombre-estudiante {
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 1rem;
+}
+
+.tarjeta-estudiante:hover .estudiante-descripcion {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.estudiante-descripcion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.781);
+    background-color: #0d0d0db6;
+    border-radius: 3%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+
+
+/*============================================================================================
+                            Tablets en horizonal y escritorios normales
+============================================================================================*/
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container-principal {
+        flex-direction: row;
+    }
+
+    .container-logo-principal {
+        margin-right: 4rem;
+    }
+
+    .logo-principal {
+        width: 20vw;
+    }
+
+    .logo-principal-texto {
+        margin-top: -0.5rem;
+    }
+
+    .logo-principal-texto1 {
+        font-size: 4.45rem;
+        line-height: 1;
+    }
+
+    .logo-principal-texto2 {
+        font-size: 3.12rem;
+        line-height: 0.8;
+    }
+
+    .logo-principal-texto3 {
+        font-size: 1.24rem;
+        margin-top: 0.5rem;
+    }
+
+    .lema1 {
+        font-size: 2rem;
+    }
+
+    .lema2 {
+        font-size: 1.8rem;
+    }
+
+    .boton-lema3 {
+        margin-top: 1rem;
+    }
+
+    .container-cursos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .titulo-cursos {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .tarjeta-curso {
+        width: 100%;
+    }
+
+    .container-estadisticas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .titulo-estadisticas {
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .container-testimonios {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .titulo-testimonios {
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+    }
+}
+
+/*============================================================================================
+                                    Escritorios grandes
+=============================================================================================*/
+@media (min-width: 1025px) {
+    .container-principal {
+        flex-direction: row;
+    }
+
+    .container-logo-principal {
+        margin-right: 8rem;
+    }
+
+    .logo-principal {
+        width: 20vw;
+    }
+
+    .logo-principal-texto {
+        margin-top: -0.5rem;
+    }
+
+    .logo-principal-texto1 {
+        font-size: 4.45rem;
+        line-height: 1;
+    }
+
+    .logo-principal-texto2 {
+        font-size: 3.12rem;
+        line-height: 0.8;
+    }
+
+    .logo-principal-texto3 {
+        font-size: 1.24rem;
+        margin-top: 0.5rem;
+    }
+
+    .lema1 {
+        font-size: 2rem;
+    }
+
+    .lema2 {
+        font-size: 1.8rem;
+    }
+
+    .boton-lema3 {
+        margin-top: 2rem;
+    }
+
+    .container-cursos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .titulo-cursos {
+        font-size: 2.5rem;
+        margin-top: 15rem;
+        margin-bottom: 5rem;
+    }
+
+    .tarjeta-curso {
+        width: 80%;
+    }
+
+    .container-estadisticas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .titulo-estadisticas {
+        font-size: 2.5rem;
+        margin-top: 15rem;
+        margin-bottom: 3rem;
+    }
+
+    .container-testimonios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .titulo-testimonios {
+        font-size: 2.5rem;
+        margin-top: 15rem;
+        margin-bottom: 5rem;
+    }
+}
