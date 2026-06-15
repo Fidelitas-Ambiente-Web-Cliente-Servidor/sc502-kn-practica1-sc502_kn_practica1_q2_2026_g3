@@ -78,3 +78,27 @@ body{
 main{
     flex:1;
 }
+
+<!---practica2-->
+
+.mensaje-error{
+    display:block;
+    color:#ff6b6b;
+    margin-top:5px;
+    font-size:0.9rem;
+}
+
+.mensaje-exito{
+    margin-top:15px;
+    color:#05f2da;
+    font-weight:bold;
+}
+
+.input-valido{
+    border:1px solid #05f2da !important;
+}
+
+.input-invalido{
+    border:1px solid #ff6b6b !important;
+}
+
