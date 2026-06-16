@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profesores | NovaCore</title>
+
+    <link rel="shortcut icon" href="./images/logotitle.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/boostrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="./index.html">
+                <img class="logo" src="./images/logotitle.png" alt="Logo Nova Core">
+
+                <div class="logo-text">
+                    <p class="logo-text-1">NovaCore</p>
+                    <p class="logo-text-2">TECHNOLOGIES</p>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse"
+                id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./cursos.html">Cursos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link activo"
+                            href="./profesores.html">Profesores</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contacto.html">Contacto</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="container py-5">
+
+        <header class="text-center mb-5">
+            <h1 class="titulo-secundario">Equipo de Profesores</h1>
+
+            <p style="color:white;">
+                Conoce a los profesionales que forman parte de NovaCore Technologies y que impulsan el aprendizaje de nuestros estudiantes.
+            </p>
+        </header>
+
+        <!-- Profesores -->
+        <section class="mb-5">
+
+    <h2 class="titulo-secundario mb-4">
+        Nuestros Profesores
+    </h2>
+
+    <div class="row" id="contenedorProfesores">
+    </div>
+
+    </section>
+
+        <!-- Misión -->
+        <section class="mb-5">
+
+            <h2 class="titulo-secundario mb-3">
+                Misión
+            </h2>
+
+            <article class="tarjeta">
+                <p style="color:white;">
+                    Formar profesionales altamente capacitados mediante programas educativos innovadores y accesibles, fomentando el desarrollo tecnológico y el aprendizaje continuo.
+                </p>
+            </article>
+
+        </section>
+
+        <!-- Visión -->
+        <section>
+
+            <h2 class="titulo-secundario mb-3">
+                Visión
+            </h2>
+
+            <article class="tarjeta">
+                <p style="color:white;">
+                    Ser una academia líder en educación tecnológica, reconocida por la calidad de sus programas y el éxito profesional de sus estudiantes.
+                </p>
+            </article>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+<footer>
+    <div class="container-principal container-footer">
+        <h4 class="contacto-footer">Contacto</h4>
+        <p class="contacto-footer">Email: info@academia.com</p>
+        <p class="contacto-footer">Teléfono: +123456789</p>
+    </div>
+</footer>
+
+<div class="modal fade" id="modalProfesor" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content tarjeta" style="background-color:#0D0D0D; border:1px solid #05F2DB;">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalNombre" style="color:white;"></h5>
+
+                <button type="button"
+                  class="btn-close btn-close-white"
+                 data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body text-center">
+                <img id="modalFoto"
+                    src=""
+                    alt="Profesor"
+                    class="img-fluid rounded mb-3">
+
+                <p id="modalEspecialidad" style="color:#05F2DB;"></p>
+                <p id="modalDescripcion" style="color:white;"></p>
+                <p id="modalCorreo" style="color:white;"></p>
+                <p id="modalCursos" style="color:white;"></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/profesores.js"></script>
+
+</body>
+</html>
