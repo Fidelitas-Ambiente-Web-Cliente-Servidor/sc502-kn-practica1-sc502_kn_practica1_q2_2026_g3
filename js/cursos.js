@@ -1,3 +1,4 @@
+/*
 const cursos = [
     {
         nombre: "HTML y CSS",
@@ -110,3 +111,4 @@ function filtrarCursos() {
 
     mostrarCursos(cursosFiltrados);
 }
+    */
