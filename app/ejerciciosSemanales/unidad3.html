@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Práctica JavaScript</title>
+
+<style>
+    body{
+        text-align:center;
+        font-family:Arial, sans-serif;
+    }
+
+    h1{
+        color:blue;
+        transition:0.3s;
+    }
+
+    p{
+        color:black;
+        transition:0.3s;
+    }
+
+    img{
+        width:300px;
+        transition:0.3s;
+    }
+
+    button{
+        margin:5px;
+        padding:10px;
+    }
+</style>
+
+</head>
+<body>
+
+<h1 id="titulo">Mi Página de Práctica</h1>
+
+<p id="texto">
+    Este es un texto que cambiará de color y tamaño.
+</p>
+
+<img
+id="imagen"
+src="https://picsum.photos/id/237/300/200"
+alt="Imagen">
+
+<br><br>
+
+<button onclick="cambiarTitulo()">
+    Cambiar Título
+</button>
+
+<button onclick="cambiarImagen()">
+    Cambiar Imagen
+</button>
+
+<button onclick="cambiarTamanoImagen()">
+    Cambiar Tamaño Imagen
+</button>
+
+<button onclick="cambiarColorTexto()">
+    Cambiar Color Texto
+</button>
+
+<script>
+
+// Cambiar título
+function cambiarTitulo(){
+    document.getElementById("titulo").textContent =
+    "Título Modificado con JavaScript";
+}
+
+// Cambiar imagen
+function cambiarImagen(){
+    document.getElementById("imagen").src =
+    "https://picsum.photos/id/1069/300/200";
+}
+
+// Cambiar tamaño imagen
+function cambiarTamanoImagen(){
+    let imagen = document.getElementById("imagen");
+
+    if(imagen.style.width === "500px"){
+        imagen.style.width = "300px";
+    }else{
+        imagen.style.width = "500px";
+    }
+}
+
+// Cambiar color texto
+function cambiarColorTexto(){
+    let titulo = document.getElementById("titulo");
+    let texto = document.getElementById("texto");
+
+    titulo.style.color = "red";
+    texto.style.color = "green";
+}
+
+// Evento mouseenter
+document.getElementById("texto").addEventListener("mouseenter", function(){
+    this.style.fontSize = "30px";
+});
+
+document.getElementById("texto").addEventListener("mouseleave", function(){
+    this.style.fontSize = "16px";
+});
+
+</script>
+<script src="./js/unidad3.js"></script>
+</body>
+</html>
+
+    

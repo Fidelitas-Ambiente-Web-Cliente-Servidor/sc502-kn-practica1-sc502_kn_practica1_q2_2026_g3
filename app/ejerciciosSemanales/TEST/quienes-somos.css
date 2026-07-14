@@ -1,0 +1,350 @@
+:root {
+    --brand-green: #2E7D32;
+    --brand-green-dark: #1B5E20;
+    --brand-orange: #EF6C00;
+    --brand-teal: #00695C;
+    --text-main: #1C1C1E;
+    --text-muted: #636366;
+    --bg-premium: #F9FBF9;
+    --bg-card: #FFFFFF;
+    --border-card: rgba(0, 0, 0, 0.08);
+
+    /* Colores adicionales usados en la página (antes hardcodeados inline) */
+    --bg-soft-gray: #F4F6F4;
+    --bg-off-white: #FAFAFC;
+    --footer-bg: #111112;
+    --footer-text-muted: #8E8E93;
+    --footer-link: #AEAEB2;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f6f4;
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+}
+
+/* --- CONTENEDOR GLOBAL RESPONSIVO --- */
+.site-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.05);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- NAVBAR RESPONSIVO COMPARTIDO --- */
+.app-navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 12px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+}
+
+.navbar-brand-title {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--brand-green);
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.navbar-brand-title:hover {
+    color: var(--brand-green-dark);
+}
+
+.nav-link-navbar {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 16px !important;
+    transition: color 0.2s ease;
+}
+
+.nav-link-navbar:hover {
+    color: var(--brand-green);
+}
+
+/* Botón hamburguesa */
+.custom-toggler {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #f4f6f4;
+    border-radius: 10px;
+    padding: 8px 12px;
+    color: var(--text-main);
+    font-size: 1.2rem;
+}
+
+.custom-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: #ffffff;
+        padding: 16px 0 8px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        margin-top: 12px;
+    }
+
+    .nav-link-navbar {
+        padding: 10px 0 !important;
+    }
+}
+
+/* --- SECCIONES Y TARJETAS --- */
+.content-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    border: 1px solid var(--border-card);
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.02);
+    padding: 40px;
+}
+
+@media (max-width: 768px) {
+    .content-card {
+        padding: 24px;
+        border-radius: 16px;
+    }
+}
+
+.mission-block {
+    background-color: #E8F5E9;
+    border-left: 5px solid var(--brand-green);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.problem-block {
+    background-color: #FFF3E0;
+    border-left: 5px solid var(--brand-orange);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+/* Bloque de "Visión" (antes: p-4 rounded-4 h-100 + style inline) */
+.vision-block {
+    background-color: var(--bg-soft-gray);
+    border: 1px solid var(--border-card);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+/* --- COMPONENTES DE VALORES --- */
+.value-box {
+    border: 1px solid var(--border-card);
+    border-radius: 16px;
+    padding: 24px;
+    background-color: #FAFAFC;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.value-box:hover {
+    transform: translateY(-2px);
+    border-color: var(--brand-green);
+}
+
+/* --- TARJETAS DE CO-FUNDADORES --- */
+.dev-card {
+    border: 1px solid var(--border-card);
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FFFFFF;
+    transition: all 0.2s ease;
+}
+
+.dev-card:hover {
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.avatar-placeholder {
+    width: 90px;
+    height: 90px;
+    background-color: #E5E5EA;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--text-muted);
+    margin: 0 auto 16px;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Rol/puesto debajo del nombre en cada dev-card */
+.dev-role {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Botón de perfil (GitHub/LinkedIn) en cada dev-card */
+.dev-profile-btn {
+    font-size: 0.75rem;
+}
+
+/* Insignia institucional "UF" */
+.uf-badge {
+    width: 60px;
+    height: 60px;
+    font-size: 1.4rem;
+    letter-spacing: -1px;
+}
+
+/* Bloque de filiación institucional (antes: p-4 rounded-4 border + style inline) */
+.institutional-affiliation {
+    background-color: var(--bg-off-white);
+    border-style: dashed !important;
+}
+
+/* --- CTA CARDS --- */
+.cta-conversion-card {
+    border: 1px solid var(--border-card);
+    border-radius: 20px;
+    padding: 32px;
+    height: 100%;
+    transition: all 0.2s;
+}
+
+.cta-donante {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F1F8F1 100%);
+    border-top: 4px solid var(--brand-green);
+}
+
+.cta-beneficiario {
+    background: linear-gradient(135deg, #FFFFFF 0%, #E0F2F1 100%);
+    border-top: 4px solid var(--brand-teal);
+}
+
+/* Botones de las CTA cards (antes: btn-success/btn-dark + style inline duplicando colores) */
+.btn-cta {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.btn-cta-donante {
+    background-color: var(--brand-green);
+}
+
+.btn-cta-donante:hover {
+    background-color: var(--brand-green-dark);
+    color: #FFFFFF;
+}
+
+.btn-cta-beneficiario {
+    background-color: var(--brand-teal);
+}
+
+.btn-cta-beneficiario:hover {
+    background-color: #004D40;
+    color: #FFFFFF;
+}
+
+/* --- UTILIDADES DE TEXTO PROPIAS (no existen en Bootstrap) --- */
+.text-success-dark {
+    color: var(--brand-green-dark);
+}
+
+.text-teal {
+    color: var(--brand-teal);
+}
+
+.text-brand-orange {
+    color: var(--brand-orange);
+}
+
+/* Etiqueta "eyebrow" reutilizable encima de los títulos de sección */
+.section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.section-eyebrow-sm {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Título principal de la página */
+.page-title {
+    letter-spacing: -1px;
+}
+
+/* Badge tipo "Misión"/"Visión" (antes: font-size y padding inline) */
+.badge-label {
+    font-size: 0.65rem;
+    padding: 5px 10px;
+}
+
+/* --- FOOTER CORPORATIVO --- */
+.site-footer {
+    background-color: var(--footer-bg);
+    border-top: 4px solid var(--brand-green);
+    font-size: 0.8rem;
+}
+
+.footer-desc-text {
+    color: var(--footer-text-muted) !important;
+    line-height: 1.6;
+}
+
+.footer-link-list {
+    color: var(--footer-link);
+}
+
+.footer-heading {
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.footer-legal-links {
+    font-size: 0.7rem;
+    gap: 4px 12px;
+}
+
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 24px 0;
+}
+
+.footer-bottom {
+    font-size: 0.65rem;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.footer-subtext {
+    font-size: 0.6rem;
+}
+
+/* Fondo del <main>, antes: style="background-color: var(--bg-premium);" */
+.bg-page {
+    background-color: var(--bg-premium);
+}
+
+/* Párrafo introductorio centrado bajo el título, antes: style="max-width: 600px;" */
+.col-lead {
+    max-width: 600px;
+}
+
+.active {
+    color: var(--brand-green) !important;
+}

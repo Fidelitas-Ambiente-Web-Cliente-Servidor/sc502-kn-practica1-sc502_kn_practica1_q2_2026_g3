@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodLink - Plataforma Profesional Responsiva</title>
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+        rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --brand-green: #2E7D32;
+            --brand-green-dark: #1B5E20;
+            --brand-orange: #EF6C00;
+            --brand-purple: #6A1B9A;
+            --brand-teal: #00695C;
+            --text-main: #1C1C1E;
+            --text-muted: #636366;
+            --bg-premium: #F9FBF9;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f4;
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- CONTENEDOR GLOBAL RESPONSIVO --- */
+        .site-container {
+            width: 100%;
+            max-width: 1200px;
+            /* Evita que se deforme en pantallas ultra anchas */
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.05);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- NAVBAR OPTIMIZADO Y RESPONSIVO --- */
+        .app-navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 12px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1050;
+        }
+
+        .navbar-brand-title {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--brand-green);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .navbar-brand-title:hover {
+            color: var(--brand-green-dark);
+        }
+
+        .nav-link-custom {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 8px 16px !important;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link-custom:hover {
+            color: var(--brand-green);
+        }
+
+        /* Estilos personalizados para el botón de colapso (hamburguesa) */
+        .custom-toggler {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: #f4f6f4;
+            border-radius: 10px;
+            padding: 8px 12px;
+            color: var(--text-main);
+            font-size: 1.2rem;
+        }
+
+        .custom-toggler:focus {
+            box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+        }
+
+        /* Ajustes específicos para móviles en el menú desplegable */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: #ffffff;
+                padding: 16px 0 8px 0;
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+                margin-top: 12px;
+            }
+
+            .nav-link-custom {
+                padding: 10px 0 !important;
+            }
+        }
+
+        /* --- PORTADA CINEMÁTICA INTEGRADA --- */
+        .hero-immersive-bg {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+            padding: 80px 40px 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-immersive-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                    rgba(0, 0, 0, 0.85) 0%,
+                    rgba(0, 0, 0, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .text-hero-integration {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            /* Mantiene el texto legible en PCs */
+        }
+
+        .text-hero-integration h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            color: #FFFFFF;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .text-hero-integration h1 {
+                font-size: 1.85rem;
+            }
+
+            .hero-immersive-bg {
+                padding: 60px 20px;
+                min-height: 320px;
+            }
+        }
+
+        .text-hero-integration p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #E5E5EA;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        /* --- REJILLAS Y TARJETAS PREMIUM COMODINES --- */
+        .premium-split-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.2s ease;
+        }
+
+        .premium-split-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-top-visual {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 16px;
+        }
+
+        .step-pill-floating {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            color: #FFFFFF;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card-bottom-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-bottom-content h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+        }
+
+        .card-bottom-content p {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* --- DISEÑO PREMIUM DE COMPROMISOS --- */
+        .commitment-row-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+            height: 100%;
+        }
+
+        .icon-wrapper-green {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background-color: rgba(46, 125, 50, 0.1);
+            color: var(--brand-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .icon-wrapper-orange {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background-color: rgba(239, 108, 0, 0.1);
+            color: var(--brand-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .icon-wrapper-purple {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background-color: rgba(106, 27, 154, 0.1);
+            color: var(--brand-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .icon-wrapper-teal {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background-color: rgba(0, 105, 92, 0.1);
+            color: var(--brand-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .mini-badge-premium {
+            font-size: 0.62rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- LOGOS CORPORATIVOS --- */
+        .brand-logo-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            height: 65px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+        }
+
+        .brand-logo-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(75%);
+            transition: all 0.3s ease;
+        }
+
+        .brand-logo-card:hover .brand-logo-img {
+            filter: grayscale(0%) opacity(100%);
+        }
+
+        .metric-box-card {
+            background-color: var(--bg-premium);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .btn-card-action-orange {
+            background: linear-gradient(180deg, #FF8F00 0%, var(--brand-orange) 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            height: 42px;
+            border-radius: 12px;
+            border: none;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-card-action-green {
+            background: linear-gradient(180deg, #4CAF50 0%, var(--brand-green) 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            height: 42px;
+            border-radius: 12px;
+            border: none;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        footer a.text-secondary:hover {
+            color: #FFFFFF !important;
+            transition: color 0.2s ease;
+        }
+
+        .active {
+            color: var(--brand-green-dark) !important;
+        }
+
+        /* --- SCROLL HORIZONTAL EN PANTALLAS PEQUEÑAS --- */
+        @media (max-width: 767px) {
+
+            /* Carrusel de tarjetas de pasos */
+            .steps-carousel-mobile {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                gap: 16px;
+                padding: 4px 16px 20px 16px;
+                margin: 0 -16px;
+            }
+
+            .steps-carousel-mobile::-webkit-scrollbar {
+                display: none;
+            }
+
+            .steps-carousel-mobile .step-card-mobile {
+                flex: 0 0 280px;
+                width: 280px;
+                scroll-snap-align: center;
+            }
+
+            /* Indicador de scroll */
+            .scroll-hint-mobile {
+                display: block;
+                text-align: center;
+                font-size: 0.65rem;
+                color: var(--text-muted);
+                margin-top: -10px;
+                margin-bottom: 12px;
+            }
+
+            /* Carrusel de logos aliados */
+            .brand-scroller-mobile {
+                display: flex;
+                overflow-x: auto;
+                gap: 16px;
+                padding: 6px 16px 20px 16px;
+                margin: 0 -16px;
+                scrollbar-width: none;
+                align-items: center;
+            }
+
+            .brand-scroller-mobile::-webkit-scrollbar {
+                display: none;
+            }
+
+            .brand-scroller-mobile .brand-logo-card {
+                flex: 0 0 120px;
+                width: 120px;
+                height: 55px;
+            }
+
+            /* Carrusel de testimonios */
+            .testimonios-carousel-mobile {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+                gap: 16px;
+                padding: 4px 16px 20px 16px;
+                margin: 0 -16px;
+            }
+
+            .testimonios-carousel-mobile::-webkit-scrollbar {
+                display: none;
+            }
+
+            .testimonios-carousel-mobile .testimonio-card-mobile {
+                flex: 0 0 280px;
+                width: 280px;
+                scroll-snap-align: center;
+            }
+        }
+
+        /* En pantallas grandes, ocultar los hints de scroll */
+        @media (min-width: 768px) {
+            .scroll-hint-mobile {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="site-container">
+
+        <!-- App Navbar Adaptable y Responsivo -->
+        <nav class="navbar navbar-expand-lg app-navbar">
+            <div class="container-fluid p-0 d-flex justify-content-between align-items-center">
+                <!-- Marca / Título -->
+                <a class="navbar-brand-title" href="#">
+                    <i class="bi bi-app-indicator text-success"></i> FoodLink
+                </a>
+
+                <!-- Botón de Hamburguesa para Móviles -->
+                <button class="navbar-toggler custom-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <!-- Contenedor de Elementos Colapsables -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Enlaces de navegación alineados al centro en escritorio -->
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom active" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#">Quiénes Somos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="#">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <!-- Botón Ingresar con Icono alineado a la derecha -->
+                    <div class="d-grid d-lg-block text-center">
+                        <button
+                            class="btn btn-sm btn-success px-4 d-inline-flex align-items-center justify-content-center gap-2"
+                            style="border-radius: 12px; font-weight: 600; min-height: 40px; font-size: 0.85rem;">
+                            <i class="bi bi-box-arrow-in-right fs-6"></i> Ingresar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 1. Cabecera Estilo Portada Inmersiva Cinemática -->
+        <header class="hero-immersive-bg">
+            <div class="text-hero-integration">
+                <h1>Alimentamos la esperanza, combatimos el desperdicio</h1>
+                <p>Conectamos mermas y excedentes comerciales con la red de asistencia social de
+                    Costa Rica de forma ágil y certificada.</p>
+            </div>
+        </header>
+
+        <!-- 2. Cómo Funciona (Estructura en Rejilla Fluida) -->
+        <section class="p-4 p-md-5" style="background-color: var(--bg-premium);">
+            <div class="mb-4">
+                <span class="text-uppercase fw-bold text-success"
+                    style="font-size: 0.75rem; letter-spacing: 1.5px;">Flujos Operativos</span>
+                <h2 class="h3 fw-bold mt-1" style="letter-spacing: -0.5px;">¿Cómo funciona la red?
+                </h2>
+            </div>
+
+            <!-- DONANTES -->
+            <div class="fw-bold text-secondary mb-3 mt-4 d-flex align-items-center gap-2"
+                style="font-size: 0.85rem; letter-spacing: 0.5px;">
+                <i class="bi bi-building text-warning fs-5"></i> RUTA PARA EMPRESAS DONANTES
+            </div>
+
+            <!-- Escritorio: grid | Móvil: scroll horizontal -->
+            <div class="row g-4 mb-5 d-none d-md-flex">
+                <div class="col-12 col-md-4">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 01</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-warning"><i class="bi bi-shield-check"></i> Registro
+                                    Legal</h3>
+                                <p>Cree su perfil corporativo ingresando sus datos de comercio
+                                    seguro y reciba validación rápida.</p>
+                            </div>
+                            <button class="btn-card-action-orange">Unirse como Donante</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 02</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-dark"><i class="bi bi-plus-circle text-warning"></i>
+                                    Publicar Lote</h3>
+                                <p>Registre sus mermas o excedentes indicando el tipo de lote,
+                                    cantidades exactas y vencimiento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 03</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-dark"><i class="bi bi-truck text-warning"></i>
+                                    Retiro Seguro</h3>
+                                <p>La fundación asignada retira el producto en su sucursal emitiendo
+                                    un certificado digital.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Versión móvil: carrusel horizontal -->
+            <div class="steps-carousel-mobile d-md-none mb-3">
+                <div class="step-card-mobile">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 01</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-warning"><i class="bi bi-shield-check"></i> Registro
+                                    Legal</h3>
+                                <p>Cree su perfil corporativo ingresando sus datos de comercio
+                                    seguro y reciba validación rápida.</p>
+                            </div>
+                            <button class="btn-card-action-orange">Unirse como Donante</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-card-mobile">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1555421689-491a97ff2040?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 02</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-dark"><i class="bi bi-plus-circle text-warning"></i>
+                                    Publicar Lote</h3>
+                                <p>Registre sus mermas o excedentes indicando el tipo de lote,
+                                    cantidades exactas y vencimiento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-card-mobile">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 03</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-dark"><i class="bi bi-truck text-warning"></i>
+                                    Retiro Seguro</h3>
+                                <p>La fundación asignada retira el producto en su sucursal emitiendo
+                                    un certificado digital.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="scroll-hint-mobile mb-3"><i class="bi bi-arrow-left-right me-1"></i>
+                Desliza para ver más pasos</span>
+
+            <!-- BENEFICIARIOS -->
+            <div class="fw-bold text-secondary mb-3 d-flex align-items-center gap-2"
+                style="font-size: 0.85rem; letter-spacing: 0.5px;">
+                <i class="bi bi-house-heart text-success fs-5"></i> RUTA PARA BENEFICIARIOS
+            </div>
+
+            <!-- Escritorio: grid | Móvil: scroll horizontal -->
+            <div class="row g-4 d-none d-md-flex">
+                <div class="col-12 col-md-4">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 01</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-success"><i class="bi bi-patch-check"></i>
+                                    Validación Social</h3>
+                                <p>Inscriba su comedor u organización para asegurar la transparencia
+                                    en la distribución final.</p>
+                            </div>
+                            <button class="btn-card-action-green">Unirse como Beneficiario</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 02</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-dark"><i class="bi bi-search text-success"></i>
+                                    Reservar Online</h3>
+                                <p>Explore y filtre los excedentes disponibles en tiempo real según
+                                    su rango de ubicación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 03</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-dark"><i class="bi bi-box-seam text-success"></i>
+                                    Recolección</h3>
+                                <p>Coordine el retiro directo en la sucursal asignada siguiendo la
+                                    ruta inteligente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Versión móvil: carrusel horizontal -->
+            <div class="steps-carousel-mobile d-md-none mb-3">
+                <div class="step-card-mobile">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 01</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-success"><i class="bi bi-patch-check"></i>
+                                    Validación Social</h3>
+                                <p>Inscriba su comedor u organización para asegurar la transparencia
+                                    en la distribución final.</p>
+                            </div>
+                            <button class="btn-card-action-green">Unirse como Beneficiario</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-card-mobile">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 02</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-dark"><i class="bi bi-search text-success"></i>
+                                    Reservar Online</h3>
+                                <p>Explore y filtre los excedentes disponibles en tiempo real según
+                                    su rango de ubicación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-card-mobile">
+                    <div class="premium-split-card">
+                        <div class="card-top-visual"
+                            style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=400');">
+                            <span class="step-pill-floating">Paso 03</span>
+                        </div>
+                        <div class="card-bottom-content">
+                            <div>
+                                <h3 class="text-dark"><i class="bi bi-box-seam text-success"></i>
+                                    Recolección</h3>
+                                <p>Coordine el retiro directo en la sucursal asignada siguiendo la
+                                    ruta inteligente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="scroll-hint-mobile mb-3"><i class="bi bi-arrow-left-right me-1"></i>
+                Desliza para ver más pasos</span>
+        </section>
+
+        <!-- 3. Datos de Nuestra Huella -->
+        <section class="p-4 p-md-5 bg-white border-top">
+            <div class="text-center mb-5">
+                <span class="text-uppercase fw-bold text-muted"
+                    style="font-size: 0.7rem; letter-spacing: 1px;">Transparencia Colectiva</span>
+                <h2 class="h3 fw-bold mt-1" style="letter-spacing: -0.5px;">Nuestra huella en San
+                    José</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="metric-box-card">
+                        <div class="fs-2 fw-bold text-success">45</div>
+                        <div class="text-muted fw-semibold small">donantes activos</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="metric-box-card">
+                        <div class="fs-2 fw-bold text-success">18.2k</div>
+                        <div class="text-muted fw-semibold small">personas impactadas</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="metric-box-card">
+                        <div class="fs-2 fw-bold text-success">12.4t</div>
+                        <div class="text-muted fw-semibold small">alimentos rescatados</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="metric-box-card">
+                        <div class="fs-2 fw-bold text-success">32</div>
+                        <div class="text-muted fw-semibold small">organizaciones</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Sección de Compromisos -->
+        <section class="p-4 p-md-5 border-top" style="background-color: #FFFFFF;">
+            <div class="mb-4">
+                <span class="text-uppercase fw-bold text-success"
+                    style="font-size: 0.7rem; letter-spacing: 1.5px;">Garantía Institucional</span>
+                <h2 class="h3 fw-bold mt-1" style="letter-spacing: -0.5px;">Nuestros Compromisos
+                </h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-12 col-md-6">
+                    <div class="commitment-row-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="icon-wrapper-purple flex-shrink-0"><i
+                                    class="bi bi-heart-pulse"></i></div>
+                            <div>
+                                <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                    <h3 class="h6 fw-bold mb-0">Impacto Humano</h3>
+                                    <span class="mini-badge-premium"
+                                        style="background-color: rgba(106, 27, 154, 0.1); color: var(--brand-purple);">Solidaridad</span>
+                                </div>
+                                <p class="mb-0 text-muted small">Aportamos nuestro grano de arena en
+                                    un mundo donde, si tenemos la posibilidad de ayudar a los más
+                                    necesitados, es nuestro deber actuar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="commitment-row-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="icon-wrapper-teal flex-shrink-0"><i
+                                    class="bi bi-flower1"></i></div>
+                            <div>
+                                <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                    <h3 class="h6 fw-bold mb-0">Rescate Consciente</h3>
+                                    <span class="mini-badge-premium"
+                                        style="background-color: rgba(0, 105, 92, 0.1); color: var(--brand-teal);">Cero
+                                        Desperdicio</span>
+                                </div>
+                                <p class="mb-0 text-muted small">Evitamos de forma estricta que
+                                    alimentos perfectamente aptos para el consumo humano sean
+                                    desechados, garantizando su máximo aprovechamiento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="commitment-row-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="icon-wrapper-green flex-shrink-0"><i
+                                    class="bi bi-shield-check"></i></div>
+                            <div>
+                                <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                    <h3 class="h6 fw-bold mb-0">Inocuidad Estricta</h3>
+                                    <span class="mini-badge-premium"
+                                        style="background-color: rgba(46, 125, 50, 0.1); color: var(--brand-green);">Estandár
+                                        Global</span>
+                                </div>
+                                <p class="mb-0 text-muted small">Monitoreamos los procesos para
+                                    asegurar que cada alimento permanezca apto para el consumo
+                                    humano seguro.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="commitment-row-card">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="icon-wrapper-orange flex-shrink-0"><i class="bi bi-eye"></i>
+                            </div>
+                            <div>
+                                <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                    <h3 class="h6 fw-bold mb-0">Transparencia Total</h3>
+                                    <span class="mini-badge-premium"
+                                        style="background-color: rgba(239, 108, 0, 0.1); color: var(--brand-orange);">Auditable</span>
+                                </div>
+                                <p class="mb-0 text-muted small">Reportes en tiempo real y
+                                    trazabilidad completa del origen y destino de cada lote donado.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aliados Estratégicos -->
+        <section class="p-4 bg-white border-top" style="overflow: hidden;">
+            <div class="mb-3">
+                <span class="text-uppercase fw-bold text-muted"
+                    style="font-size: 0.65rem; letter-spacing: 1px;">Empresas Aliadas</span>
+            </div>
+            <!-- Escritorio: grid de 3 columnas -->
+            <div class="row g-3 d-none d-md-flex">
+                <div class="col-4">
+                    <div class="brand-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Auto_Mercado_logo.svg"
+                            alt="Auto Mercado" class="brand-logo-img">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="brand-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Marriott_International_logo.svg"
+                            alt="Marriott" class="brand-logo-img">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="brand-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Logo_Feeding_America.svg"
+                            alt="Banco de Alimentos" class="brand-logo-img">
+                    </div>
+                </div>
+            </div>
+            <!-- Móvil: scroll horizontal -->
+            <div class="brand-scroller-mobile d-md-none">
+                <div class="brand-logo-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Auto_Mercado_logo.svg"
+                        alt="Auto Mercado" class="brand-logo-img">
+                </div>
+                <div class="brand-logo-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Marriott_International_logo.svg"
+                        alt="Marriott" class="brand-logo-img">
+                </div>
+                <div class="brand-logo-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Logo_Feeding_America.svg"
+                        alt="Banco de Alimentos" class="brand-logo-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Testimonios en Columnas Fluídas -->
+        <section class="p-4 p-md-5 border-top bg-white" style="overflow: hidden;">
+            <div class="mb-4">
+                <span class="text-uppercase fw-bold text-muted"
+                    style="font-size: 0.65rem; letter-spacing: 1px;">Casos de Éxito</span>
+                <h2 class="h3 fw-bold mt-1" style="letter-spacing: -0.5px;">Voces de la red</h2>
+            </div>
+
+            <!-- Escritorio: grid de 3 columnas -->
+            <div class="row g-4 d-none d-md-flex">
+                <div class="col-12 col-md-4">
+                    <div class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between"
+                        style="background-color: var(--bg-premium); border: 1px solid rgba(0,0,0,0.06); min-height: 180px;">
+                        <p class="text-secondary fst-italic mb-3 small">"La integración con FoodLink
+                            nos permitió digitalizar y canalizar de forma transparente las mermas de
+                            producción de la sucursal".</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <div
+                                style="width:32px; height:32px; background: linear-gradient(135deg, #A5D6A7 0%, #2E7D32 100%); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem;">
+                                RE</div>
+                            <div>
+                                <h4 class="mb-0 fw-bold small">Roberto Escalante</h4>
+                                <span class="text-muted" style="font-size: 0.65rem;">Hotel Sabana •
+                                    San José</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between"
+                        style="background-color: var(--bg-premium); border: 1px solid rgba(0,0,0,0.06); min-height: 180px;">
+                        <p class="text-secondary fst-italic mb-3 small">"Logramos abastecer de forma
+                            variada y segura los almuerzos diarios de nuestros niños gracias a la
+                            rapidez de las alertas".</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <div
+                                style="width:32px; height:32px; background: linear-gradient(135deg, #FFCC80 0%, #EF6C00 100%); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem;">
+                                MA</div>
+                            <div>
+                                <h4 class="mb-0 fw-bold small">María Alvaredo</h4>
+                                <span class="text-muted" style="font-size: 0.65rem;">Comedor
+                                    Infantil Alajuelita</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between"
+                        style="background-color: var(--bg-premium); border: 1px solid rgba(0,0,0,0.06); min-height: 180px;">
+                        <p class="text-secondary fst-italic mb-3 small">"La trazabilidad digital
+                            mitiga cualquier riesgo legal y asegura que los donativos lleguen a
+                            organizaciones serias".</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <div
+                                style="width:32px; height:32px; background: linear-gradient(135deg, #B39DDB 0%, #6A1B9A 100%); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem;">
+                                GC</div>
+                            <div>
+                                <h4 class="mb-0 fw-bold small">Guillermo Castro</h4>
+                                <span class="text-muted" style="font-size: 0.65rem;">Supermercados
+                                    del Centro</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Móvil: scroll horizontal -->
+            <div class="testimonios-carousel-mobile d-md-none">
+                <div class="testimonio-card-mobile">
+                    <div class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between"
+                        style="background-color: var(--bg-premium); border: 1px solid rgba(0,0,0,0.06); min-height: 180px;">
+                        <p class="text-secondary fst-italic mb-3 small">"La integración con FoodLink
+                            nos permitió digitalizar y canalizar de forma transparente las mermas de
+                            producción de la sucursal".</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <div
+                                style="width:32px; height:32px; background: linear-gradient(135deg, #A5D6A7 0%, #2E7D32 100%); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem;">
+                                RE</div>
+                            <div>
+                                <h4 class="mb-0 fw-bold small">Roberto Escalante</h4>
+                                <span class="text-muted" style="font-size: 0.65rem;">Hotel Sabana •
+                                    San José</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonio-card-mobile">
+                    <div class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between"
+                        style="background-color: var(--bg-premium); border: 1px solid rgba(0,0,0,0.06); min-height: 180px;">
+                        <p class="text-secondary fst-italic mb-3 small">"Logramos abastecer de forma
+                            variada y segura los almuerzos diarios de nuestros niños gracias a la
+                            rapidez de las alertas".</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <div
+                                style="width:32px; height:32px; background: linear-gradient(135deg, #FFCC80 0%, #EF6C00 100%); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem;">
+                                MA</div>
+                            <div>
+                                <h4 class="mb-0 fw-bold small">María Alvaredo</h4>
+                                <span class="text-muted" style="font-size: 0.65rem;">Comedor
+                                    Infantil Alajuelita</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonio-card-mobile">
+                    <div class="p-4 rounded-4 h-100 d-flex flex-column justify-content-between"
+                        style="background-color: var(--bg-premium); border: 1px solid rgba(0,0,0,0.06); min-height: 180px;">
+                        <p class="text-secondary fst-italic mb-3 small">"La trazabilidad digital
+                            mitiga cualquier riesgo legal y asegura que los donativos lleguen a
+                            organizaciones serias".</p>
+                        <div class="d-flex align-items-center gap-2">
+                            <div
+                                style="width:32px; height:32px; background: linear-gradient(135deg, #B39DDB 0%, #6A1B9A 100%); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem;">
+                                GC</div>
+                            <div>
+                                <h4 class="mb-0 fw-bold small">Guillermo Castro</h4>
+                                <span class="text-muted" style="font-size: 0.65rem;">Supermercados
+                                    del Centro</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="scroll-hint-mobile mt-2"><i class="bi bi-arrow-left-right me-1"></i>
+                Desliza para ver más testimonios</span>
+        </section>
+
+        <!-- Footer Institucional Adaptable -->
+        <footer class="text-white pt-5 pb-4 px-4 px-md-5"
+            style="background-color: #111112; border-top: 4px solid var(--brand-green); font-size: 0.8rem;">
+            <div class="row g-4 mb-4">
+                <div class="col-12 col-md-6">
+                    <span class="fw-bold text-success fs-5 d-flex align-items-center gap-2 mb-2">
+                        <i class="bi bi-app-indicator"></i> FoodLink
+                    </span>
+                    <p class="text-secondary mb-3"
+                        style="line-height: 1.6; color: #8E8E93 !important;">
+                        Infraestructura tecnológica dedicada al development de redes de economía
+                        circular, mitigación de mermas y fortalecimiento de la seguridad alimentaria
+                        en Costa Rica.
+                    </p>
+                    <div class="d-flex gap-3 fs-5 text-secondary">
+                        <a href="#" class="text-secondary text-decoration-none"
+                            aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-secondary text-decoration-none"
+                            aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-secondary text-decoration-none"
+                            aria-label="X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-secondary text-decoration-none"
+                            aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <h4 class="text-white fw-bold mb-3"
+                                style="font-size: 0.75rem; letter-spacing: 0.5px; text-transform: uppercase;">
+                                Plataforma</h4>
+                            <ul class="list-unstyled d-flex flex-column gap-2"
+                                style="color: #AEAEB2;">
+                                <li><a href="#" class="text-secondary text-decoration-none">Sobre
+                                        Nosotros</a></li>
+                                <li><a href="#" class="text-secondary text-decoration-none">Casos de
+                                        Impacto</a></li>
+                                <li><a href="#"
+                                        class="text-secondary text-decoration-none">Cumplimiento
+                                        ODS</a></li>
+                                <li><a href="#" class="text-secondary text-decoration-none">Prensa y
+                                        Noticias</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="text-white fw-bold mb-3"
+                                style="font-size: 0.75rem; letter-spacing: 0.5px; text-transform: uppercase;">
+                                Ecosistema</h4>
+                            <ul class="list-unstyled d-flex flex-column gap-2"
+                                style="color: #AEAEB2;">
+                                <li><a href="#"
+                                        class="text-secondary text-decoration-none">Documentación
+                                        API</a></li>
+                                <li><a href="#" class="text-secondary text-decoration-none">Centro
+                                        de Ayuda</a></li>
+                                <li><a href="#" class="text-secondary text-decoration-none">Canal de
+                                        Soporte</a></li>
+                                <li><a href="#"
+                                        class="text-secondary text-decoration-none">Seguridad e
+                                        Inocuidad</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 24px 0;">
+
+            <div class="mb-4">
+                <div class="d-flex flex-wrap gap-x-3 gap-y-1 text-secondary"
+                    style="font-size: 0.7rem;">
+                    <a href="#" class="text-secondary text-decoration-none me-3">Términos de
+                        Servicio</a>
+                    <a href="#" class="text-secondary text-decoration-none me-3">Política de
+                        Privacidad</a>
+                    <a href="#" class="text-secondary text-decoration-none">Gestión de Cookies</a>
+                </div>
+            </div>
+
+            <div class="pt-3 border-top border-dark d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 text-secondary"
+                style="font-size: 0.65rem; border-color: rgba(255,255,255,0.05) !important;">
+                <div>
+                    <span class="d-block">© 2026 Universidad Fidélitas</span>
+                    <span class="text-muted" style="font-size: 0.6rem;">Proyecto de Ingeniería
+                        Cliente/Servidor</span>
+                </div>
+                <span class="fw-medium">San José, CR</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS con Popper (Necesario para que funcione el menú colapsable) -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

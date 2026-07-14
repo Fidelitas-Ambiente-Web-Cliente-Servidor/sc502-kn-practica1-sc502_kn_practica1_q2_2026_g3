@@ -1,0 +1,110 @@
+@import url("./style.css");
+
+/* afecta a todo el documento */
+* {
+    background-color: aqua;
+}
+
+/* afecta a todos los elementos p */
+p {
+    color: blue;
+}
+
+
+/* afecta al elemento con id numero */
+#numero {
+    border-color: green;
+}
+
+/* afecta a los elementos con la clase grupo1 */
+.grupo1 {
+    color: orange;
+}
+
+/*atributo presente*/
+input[type]{
+
+    color: red;
+}
+
+/*atributo exacto */
+input[type="date"]{
+
+    background-color: yellow;
+}
+
+/*atributo que contiene */
+input[type="p"]{
+
+    background-color: lightgray;
+}
+
+/*elemplo de descendientes*/
+
+#ejemplo p {
+
+    color: purple;
+   
+
+}
+
+/*ejemplo hijo directo*/
+#ejemplo > p {
+
+    font-size: 20px;
+
+}
+
+/*hermano adyacente*/
+#ejemplo h3 + p {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+
+}
+
+/*hermano general*/
+#ejemplo h3 ~ p {
+
+    font-style: italic;
+
+}
+
+
+#banner {
+
+    width: 500px;
+    border: 3px solid red;
+    padding: 10px 20px;
+    margin: 0px;
+
+}
+
+#banner1 {
+
+    width: 600px;
+    border: 3px solid green;
+    padding: 10px;
+    padding-left: 20px;
+    margin: 10px;
+
+}
+
+.cuadrado {
+
+    width: 200px;
+    /*height: 200px;*/
+    background-color: purple;
+    padding: 20px;
+    margin: 10px;
+
+}
+
+#contenedor {
+    display: flex;
+    background-color: red;
+    flex-direction: row;
+    height: 500px;
+    justify-content: space-between;
+    align-items: stretch;
+}
