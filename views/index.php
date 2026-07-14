@@ -17,10 +17,14 @@
 
     <!-- Iconos lenguajes -->
     <div class="container-iconos">
-        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono"></div>
-        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono"></div>
-        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono"></div>
-        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono"></div>
+        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono-lenguaje"></div>
+        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono-lenguaje"></div>
+        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono-lenguaje"></div>
+        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono-lenguaje"></div>
+        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono-lenguaje"></div>
+        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono-lenguaje"></div>
+        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono-lenguaje"></div>
+        <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje" class="icono-lenguaje"></div>
     </div>
 
     <section class="container-lema">
@@ -36,13 +40,12 @@
 
             <?php if (!empty($cursos)): ?>
                 <?php foreach ($cursos as $curso): ?>
-                    <article class="tarjeta">
+                    <article class="tarjeta tarjeta-estudiante">
                         <img src="<?php echo htmlspecialchars($curso['imagen']); ?>" alt="<?php echo htmlspecialchars($curso['nombre']); ?>" class="icono">
                         <h3 class="estadisticas-titulo"><?php echo htmlspecialchars($curso['nombre']); ?></h3>
                         <p class="estudiante-descripcion"><?php echo htmlspecialchars($curso['descripcion']); ?></p>
-                        <p class="badge bg-primary text-wrap" style="width: 6rem;"><?php echo htmlspecialchars($curso['categoria']); ?></p>
-                        <p><strong>Duración:</strong> <?php echo htmlspecialchars($curso['duracion']); ?></p>
-                        <p><strong>Precio:</strong> $<?php echo htmlspecialchars($curso['precio']); ?></p>
+                        <p class="info "><strong>Duración:</strong> <?php echo htmlspecialchars($curso['duracion']); ?></p>
+                        <p class="info "><strong>Precio:</strong> $<?php echo htmlspecialchars($curso['precio']); ?></p>
                     </article>
                 <?php endforeach; ?>
             <?php else: ?>
