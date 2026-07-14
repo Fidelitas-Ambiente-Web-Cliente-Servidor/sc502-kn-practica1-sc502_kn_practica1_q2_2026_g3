@@ -51,3 +51,59 @@ INSERT INTO contacto (nombre, email, telefono, asunto, mensaje) VALUES
 ('maria Fernandez', 'maria.fernandez@practica3.com', '8888-9012', 'Metodos de pago', 'Quisiera saber que metodos de pago aceptan para inscribirme en el curso de Seguridad Digital.'),
 ('Jose Vargas', 'jose.vargas@novatech.com', '8888-3456', 'Certificacion', 'Me interesa saber si el curso de JavaScript Inicial otorga algun tipo de certificado al finalizar.'),
 ('Laura Jimenez', 'laura.jimenez@outlook.com', '8888-7890', 'Modalidad virtual', 'Buen dia, quisiera confirmar si los cursos de Desarrollo Web se imparten de forma virtual o presencial.');
+
+-- tabla de profesores
+CREATE TABLE IF NOT EXISTS profesores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    especialidad VARCHAR(100) NOT NULL,
+    descripcion TEXT NOT NULL,
+    foto VARCHAR(255) NOT NULL,
+    correo VARCHAR(150) NOT NULL,
+    cursos_que_imparte VARCHAR(255) NOT NULL
+);
+
+-- inserts para la tabla de profesores
+INSERT INTO profesores
+(nombre, especialidad, descripcion, foto, correo, cursos_que_imparte)
+VALUES
+(
+    'Carlos Ramírez',
+    'Desarrollo Web',
+    'Especialista en HTML, CSS, JavaScript y Bootstrap con amplia experiencia en proyectos web.',
+    'images/profesor4.jpg',
+    'carlos.ramirez@novacore.com',
+    'HTML5, CSS3, JavaScript y Bootstrap'
+),
+(
+    'María González',
+    'Python',
+    'Experta en programación con Python, automatización de procesos y análisis de datos.',
+    'images/profesor2.jpg',
+    'maria.gonzalez@novacore.com',
+    'Python Básico, Python Avanzado y Análisis de Datos'
+),
+(
+    'Andrés Vargas',
+    'Bases de Datos',
+    'Consultor en MySQL y PostgreSQL con experiencia en diseño y administración de bases de datos.',
+    'images/profesor3.jpg',
+    'andres.vargas@novacore.com',
+    'MySQL, PostgreSQL y Diseño de Bases de Datos'
+),
+(
+    'Laura Fernández',
+    'Ciberseguridad',
+    'Especialista en protección de datos, redes y buenas prácticas de seguridad informática.',
+    'images/profesor1.jpg',
+    'laura.fernandez@novacore.com',
+    'Seguridad Informática, Redes y Protección de Datos'
+),
+(
+    'Daniel Mora',
+    'Computación en la Nube',
+    'Profesional especializado en servicios cloud, despliegue de aplicaciones y arquitectura tecnológica.',
+    'images/profesor4.jpg',
+    'daniel.mora@novacore.com',
+    'AWS, Servicios en la Nube y Despliegue de Aplicaciones'
+);
