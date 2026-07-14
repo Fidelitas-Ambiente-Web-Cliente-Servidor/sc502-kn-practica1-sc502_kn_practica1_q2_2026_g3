@@ -2,11 +2,11 @@
 class Database {
     private static string $host = 'db';
 
-    private static string $dbname = 'practica';
+    private static string $dbname = 'appdb';
 
-    private static string $user = 'root';
+    private static string $user = 'appuser';
 
-    private static string $password = 'root';
+    private static string $password = 'apppass';
 
     private static ?PDO $instance = null;
 
@@ -26,9 +26,12 @@ class Database {
                     PDO::ATTR_EMULATE_PREPARES      => false,
                 ]);
             } catch (PDOException $e) {
+
                 http_response_code(500);
-                die(; );
-            }
+                die('<h2>Error de conexion a la base de datos.</h2><p>' . $e -> getMessage() . '</p>');
+            } 
         }
+
+        return self::$instance;
     }
 }
