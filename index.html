@@ -3,142 +3,207 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaTech Academy</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index.css">
+    <meta name="description" content="Esta pagina se trata de una academia de programacion con el fin de enseñar
+            a toda aquella personas que deseen iniciar en el mundo de la tecnologia">
+    <meta name="keywords"
+        content="programacion, academia, tecnologia, curso, introduccion, HTML, CSS, BOOTSTRAP">
+    <meta name="author" content="Axell Garcia Rivas">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Academia de Programacion">
+    <meta property="og:description" content="Esta pagina se trata de una academia de programacion con el fin de enseñar
+            a toda aquella personas que deseen iniciar en el mundo de la tecnologia">
+    <meta property="og:image" content="./images/logotitle.png">
+    <meta property="og:url" content="">
+    <link rel="apple-touch-icon" href="./images/logotitle.png">
+    <link rel="shortcut icon" href="./images/logotitle.png">
+    <title>Nova Core</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/boostrap.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="https://kit.fontawesome.com/a27644048c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-    <!-- NAVBAR -->
-    <nav id="navbar">
-        <div class="container" id="nav-contenido">
-
-            <a href="index.html" id="nav-logo">
-                NOVA<span>TECH</span>
+    <!-- Navegacion -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">
+                <img class="logo" src="./images/logotitle.png" alt="Logo Nova Core">
+                <div class="logo-text">
+                    <p class="logo-text-1">NovaCore</p>
+                    <p class="logo-text-2">TECHNOLOGIES</p>
+                </div>
             </a>
-
-            <input type="checkbox" id="nav-check">
-            <label for="nav-check" id="nav-toggle">☰</label>
-
-            <ul id="nav-links">
-                <li><a href="index.html" class="activo">Inicio</a></li>
-                <li><a href="cursos.html">Cursos</a></li>
-                <li><a href="profesores.html">Nosotros</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link activo" aria-current="page"
+                            href="./index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./cursos.html">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./profesores.html">Profesores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search"
+                        aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
         </div>
     </nav>
 
+    <!-- Contenido principal -->
     <main>
-
-        <!-- HERO -->
-        <section class="hero">
-
-            <div class="container">
-
-                <h1 class="seccion-titulo">
-                    Domina la Tecnología del Futuro
-                </h1>
-
-                <p class="seccion-subtitulo">
-                    Aprende las habilidades más demandadas en Data Science,
-                    Inteligencia Artificial, Desarrollo Full Stack y
-                    Ciberseguridad.
-                </p>
-
-                <a href="#" class="btn-acento">
-                    Explorar Programas
-                </a>
-
+        <!-- Logo principal -->
+        <div class="container-principal">
+            <div class="container-logo-principal">
+                <img class="logo-principal" src="./images/logotitle.png" alt="Logo Nova Cor">
+                <div class="sombra-logo-principal"></div>
             </div>
+            <div class="logo-principal-texto">
+                <h1 class="logo-principal-texto1">NOVACORE</h1>
+                <span class="logo-principal-texto2">TECHNOLOGIES</span>
+                <span class="logo-principal-texto3">INOVACIÓN & CENTRO DE SOLUCIONES</span>
+            </div>
+        </div>
 
+        <!-- Iconos lenguajes -->
+        <div class="container-iconos">
+            <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje"
+                    class="icono"></div>
+            <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje"
+                    class="icono"></div>
+            <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje"
+                    class="icono"></div>
+            <div class="tarjeta-iconos"><img src="./images/logo1.png" alt="icono lenguaje"
+                    class="icono"></div>
+        </div>
+
+        <section class="container-lema">
+            <p class="lema1">DESATA EL PODER DE TU INGENIO</p>
+            <p class="lema2">Aprende con los mejores expertos en tecnología</p>
+            <a class="boton-lema3 boton" href="./contacto.html">¡INSCRÍBETE HOY!</a>
         </section>
 
-        <!-- BENEFICIOS -->
-        <section class="beneficios">
-
-            <div class="container">
-
-                <div class="beneficios-header">
-                    <h2 class="seccion-titulo">
-                        ¿Por qué estudiar con nosotros?
-                    </h2>
-                </div>
-
-                <div class="beneficios-grid">
-
-                    <div class="beneficio">
-                        <h3>Profesores Expertos</h3>
-                        <p>
-                            Aprende con profesionales activos en la industria.
-                        </p>
-                    </div>
-
-                    <div class="beneficio">
-                        <h3>Modalidad Flexible</h3>
-                        <p>
-                            Estudia desde cualquier lugar y a tu ritmo.
-                        </p>
-                    </div>
-
-                    <div class="beneficio">
-                        <h3>Certificación</h3>
-                        <p>
-                            Obtén certificados al completar cada programa.
-                        </p>
-                    </div>
-
-                    <div class="beneficio">
-                        <h3>Proyectos Reales</h3>
-                        <p>
-                            Desarrolla experiencia práctica para tu portafolio.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
+        <!-- Cursos destacados -->
+        <section class="container-principal-tarjeta">
+            <h2 class="titulo-secundario titulo-cursos">Nuestos cursos más populares</h2>
+            <div class="container-tarjetas container-cursos" id="container-cursos"></div>
         </section>
 
-        <!-- CURSOS -->
-        <section class="cursos">
-
-            <div class="container">
-
-                <div class="cursos-header">
-                    <h2 class="seccion-titulo">Nuestros Programas</h2>
-                </div>
-
-                <div id="cursos-grid">
-                    <!-- Las tarjetas se generan dinámicamente desde index.js -->
-                </div>
-
+        <!-- Estadisticas de la academia -->
+        <section class="container-principal-tarjeta">
+            <h2 class="titulo-secundario titulo-estadisticas">Nuestros numeros hablan por sí mismos
+            </h2>
+            <div class="container-tarjetas container-estadisticas">
+                <article class="tarjeta estadisticas-estudiantes">
+                    <h3 class="estadisticas-titulo">Estudiantes</h3>
+                    <div class="luz-estadistica">
+                        <p class="numero-estadistica">+3000</p>
+                    </div>
+                </article>
+                <article class="tarjeta estadisticas-cursos">
+                    <h3 class="estadisticas-titulo">Cursos</h3>
+                    <div class="luz-estadistica">
+                        <p class="numero-estadistica">+250</p>
+                    </div>
+                </article>
+                <article class="tarjeta estadisticas-profesores">
+                    <h3 class="estadisticas-titulo">Profesores</h3>
+                    <div class="luz-estadistica">
+                        <p class="numero-estadistica">+100</p>
+                    </div>
+                </article>
             </div>
+        </section>
 
+
+        <!-- Testimonios -->
+        <section class="container-principal-tarjeta">
+            <h2 class="titulo-secundario titulo-testimonios">Nuestros numeros hablan por sí mismos
+            </h2>
+            <div class="container-tarjetas container-testimonios">
+                <article class=" tarjeta tarjeta-estudiante">
+                    <img src="./images/estudiante1.jpg" alt="estudiante" class="imagen-estudiante">
+                    <h3 class="nombre-estudiante">Carlos Gutierres</h3>
+                    <p class="estudiante-descripcion">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Excepturi magnam voluptatibus, provident quibusdam aliquam
+                        dignissimos iusto reiciendis asperiores ipsam quos tenetur in ullam,
+                        molestiae pariatur aliquid, perspiciatis et porro commodi!</p>
+                </article>
+
+                <article class=" tarjeta tarjeta-estudiante">
+                    <img src="./images/estudiante3.jpg" alt="estudiante" class="imagen-estudiante">
+                    <h3 class="nombre-estudiante">Monica Alvarado</h3>
+                    <p class="estudiante-descripcion">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Excepturi magnam voluptatibus, provident quibusdam aliquam
+                        dignissimos iusto reiciendis asperiores ipsam quos tenetur in ullam,
+                        molestiae pariatur aliquid, perspiciatis et porro commodi!</p>
+                </article>
+
+                <article class=" tarjeta tarjeta-estudiante">
+                    <img src="./images/estudiante2.jpg" alt="estudiante" class="imagen-estudiante">
+                    <h3 class="nombre-estudiante">Jose Garcia</h3>
+                    <p class="estudiante-descripcion">Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Excepturi magnam voluptatibus, provident quibusdam aliquam
+                        dignissimos iusto reiciendis asperiores ipsam quos tenetur in ullam,
+                        molestiae pariatur aliquid, perspiciatis et porro commodi!</p>
+                </article>
+            </div>
         </section>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer id="footer">
-
-        <div class="container">
-
-            <div class="footer-creditos">
-                © 2026 NovaTech Academy. Todos los derechos reservados.
-            </div>
-
+    <!-- Footer -->
+    <footer>
+        <div class="container-principal container-footer">
+            <h4 class="contacto-footer">Contacto</h4>
+            <p class="contacto-footer">Email: info@academia.com</p>
+            <p class="contacto-footer">Teléfono: +123456789</p>
+            <ul>
+                <li>
+                    <a class="container-icono-footer" href="#"><i
+                            class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a class="container-icono-footer" href="#"><i
+                            class="fa-brands fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a class="container-icono-footer" href="#"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a class="container-icono-footer" href="#"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                </li>
+            </ul>
         </div>
-
     </footer>
-
-    <script src="js/index.js"></script>
-
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,56 @@
+@import url(./style.css);
+
+.bg-body-tertiary {
+    background-color: var(--color-base) !important;
+}
+
+.nav-link {
+    color: var(--color-prymary)
+}
+
+.nav-link:hover {
+    color: var(--color-ternary)
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.me-auto {
+    margin-right: 3rem !important;
+}
+
+.form-control {
+    border-radius: 1rem;
+    border: 1px solid var(--color-border-gray);
+    color: var(--color-prymary);
+    background: transparent;
+}
+
+.form-control::placeholder {
+    color: var(--color-border-gray);
+}
+
+.form-control:focus {
+    background: transparent;
+    color: var(--color-prymary);
+    box-shadow: 0 0 0 0.25rem #1a80d96c;
+}
+
+.btn-outline-success {
+    border: 1px solid var(--color-prymary);
+    color: var(--color-prymary);
+}
+
+.btn-outline-success:hover {
+    background-color: var(--color-ternary);
+    color: var(--color-base);
+    
+}

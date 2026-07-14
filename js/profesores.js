@@ -1,157 +1,96 @@
-/*
-//Tarea 2 
-
-// Funcionalidad dinámica de la página de profesores
-
-// Array de profesores con sus datos
-let profesores = [
+const profesores = [
     {
-        nombre: "Carlos Méndez",
+        nombre: "Carlos Ramírez",
         especialidad: "Desarrollo Web",
-        descripcion: "Ingeniero en sistemas con 10 años de experiencia en desarrollo fullstack. Especialista en React, Node.js y arquitecturas modernas.",
-        foto: "./images/profesor1.jpg",
-        correo: "cmendez@novatechacademy.cr",
-        cursosQueImparte: ["Páginas Web", "Contenedores"]
-    },
-    {
-        nombre: "Laura Solís",
-        especialidad: "Bases de Datos",
-        descripcion: "Experta en diseño y administración de bases de datos relacionales y no relacionales. Certificada en MySQL, PostgreSQL y MongoDB.",
-        foto: "./images/profesor2.jpg",
-        correo: "lsolis@novatechacademy.cr",
-        cursosQueImparte: ["Bases de Datos"]
-    },
-    {
-        nombre: "Diego Ramírez",
-        especialidad: "Ciberseguridad",
-        descripcion: "Especialista en seguridad informática y ethical hacking. Ha trabajado con empresas del sector financiero protegiendo infraestructuras críticas.",
-        foto: "./images/profesor3.jpg",
-        correo: "dramirez@novatechacademy.cr",
-        cursosQueImparte: ["Ciberseguridad"]
-    },
-    {
-        nombre: "Ana Torres",
-        especialidad: "Inteligencia Artificial",
-        descripcion: "Investigadora y docente en machine learning y redes neuronales. Doctora en Ciencias de la Computación por la Universidad de Costa Rica.",
+        descripcion: "Especialista en HTML, CSS, JavaScript y Bootstrap con amplia experiencia en proyectos web.",
         foto: "./images/profesor4.jpg",
-        correo: "atorres@novatechacademy.cr",
-        cursosQueImparte: ["Inteligencia Artificial", "Bases de Datos"]
+        correo: "carlos.ramirez@novacore.com",
+        cursosQueImparte: "HTML5, CSS3, JavaScript y Bootstrap"
+    },
+    {
+        nombre: "María González",
+        especialidad: "Python",
+        descripcion: "Experta en programación con Python, automatización de procesos y análisis de datos.",
+        foto: "./images/profesor2.jpg",
+        correo: "maria.gonzalez@novacore.com",
+        cursosQueImparte: "Python Básico, Python Avanzado y Análisis de Datos"
+    },
+    {
+        nombre: "Andrés Vargas",
+        especialidad: "Bases de Datos",
+        descripcion: "Consultor en MySQL y PostgreSQL con experiencia en diseño y administración de bases de datos.",
+        foto: "./images/profesor3.jpg",
+        correo: "andres.vargas@novacore.com",
+        cursosQueImparte: "MySQL, PostgreSQL y Diseño de Bases de Datos"
+    },
+    {
+        nombre: "Laura Fernández",
+        especialidad: "Ciberseguridad",
+        descripcion: "Especialista en protección de datos, redes y buenas prácticas de seguridad informática.",
+        foto: "./images/profesor1.jpg",
+        correo: "laura.fernandez@novacore.com",
+        cursosQueImparte: "Seguridad Informática, Redes y Protección de Datos"
     }
 ];
-*/
 
-document.addEventListener("DOMContentLoaded", function () {
+const contenedorProfesores = document.getElementById("contenedorProfesores");
 
-    // Menú hamburguesa
-    let btnToggle = document.getElementById("nav-toggle");
-    let navLinks = document.getElementById("nav-links");
+function mostrarProfesores() {
+    profesores.forEach((profesor, index) => {
+        const columna = document.createElement("div");
+        columna.className = "col-md-6 col-lg-3 mb-4";
 
-    btnToggle.addEventListener("click", function () {
-        if (navLinks.style.display === "flex") {
-            navLinks.style.display = "none";
-        } else {
-            navLinks.style.display = "flex";
-        }
-    });
-    /*
-    // Renderizar las tarjetas de profesores
-    renderizarProfesores();
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "tarjeta h-100 text-center";
+        tarjeta.style.cursor = "pointer";
+        tarjeta.setAttribute("data-id", index);
 
-    // Cerrar modal al hacer clic en el fondo
-    let modal = document.getElementById("modal-profesor");
-    modal.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            cerrarModal();
-        }
-    */
-    });
+        const imagen = document.createElement("img");
+        imagen.src = profesor.foto;
+        imagen.alt = profesor.nombre;
+        imagen.className = "img-fluid rounded mb-3 w-100";
+        imagen.style.height = "130px";
+        imagen.style.objectFit = "cover";
 
-    /*
-    // Cerrar modal al hacer clic en el botón de cerrar
-    let btnCerrar = document.getElementById("modal-cerrar");
-    btnCerrar.addEventListener("click", function () {
-        cerrarModal();
-    });
+        const nombre = document.createElement("h3");
+        nombre.style.color = "white";
+        nombre.textContent = profesor.nombre;
 
-});
+        const especialidad = document.createElement("p");
+        especialidad.style.color = "#05F2DB";
+        especialidad.textContent = profesor.especialidad;
 
-// Función que crea y muestra las tarjetas de profesores en el HTML
-function renderizarProfesores() {
-    let contenedor = document.getElementById("contenedor-profesores");
+        const descripcion = document.createElement("p");
+        descripcion.style.color = "white";
+        descripcion.textContent = profesor.descripcion;
 
-    profesores.forEach(function (profesor, index) {
+        tarjeta.appendChild(imagen);
+        tarjeta.appendChild(nombre);
+        tarjeta.appendChild(especialidad);
+        tarjeta.appendChild(descripcion);
 
-        let col = document.createElement("div");
-        col.className = "col-12 col-md-6 col-lg-3";
-
-        // Crear la tarjeta
-        let card = document.createElement("div");
-        card.className = "card-profesor";
-        card.dataset.index = index;
-
-        // Crear la foto
-        let img = document.createElement("img");
-        img.src = profesor.foto;
-        img.alt = "Foto de " + profesor.nombre;
-
-        // Crear el nombre
-        let nombre = document.createElement("h3");
-        nombre.innerText = profesor.nombre;
-
-        // Crear la especialidad
-        let especialidad = document.createElement("p");
-        especialidad.className = "especialidad";
-        especialidad.innerText = profesor.especialidad;
-
-        // Crear la descripción
-        let descripcion = document.createElement("p");
-        descripcion.className = "descripcion";
-        descripcion.innerText = profesor.descripcion;
-
-        // Agregar todos los elementos a la tarjeta
-        card.appendChild(img);
-        card.appendChild(nombre);
-        card.appendChild(especialidad);
-        card.appendChild(descripcion);
-
-        // clic para abri el modal con el profesor seleccionado
-        card.addEventListener("click", function () {
-            let i = card.dataset.index;
-            abrirModal(profesores[i]);
+        tarjeta.addEventListener("click", function () {
+            abrirModal(index);
         });
 
-        // Agregar la tarjeta a la columna y la columna al contenedor
-        col.appendChild(card);
-        contenedor.appendChild(col);
+        columna.appendChild(tarjeta);
+        contenedorProfesores.appendChild(columna);
     });
 }
 
-// Función que abre el modal con la información completa del profesor
-function abrirModal(profesor) {
-    document.getElementById("modal-foto").src = profesor.foto;
-    document.getElementById("modal-foto").alt = "Foto de " + profesor.nombre;
-    document.getElementById("modal-nombre").innerText = profesor.nombre;
-    document.getElementById("modal-especialidad").innerText = profesor.especialidad;
-    document.getElementById("modal-descripcion").innerText = profesor.descripcion;
-    document.getElementById("modal-correo").innerText = profesor.correo;
+function abrirModal(index) {
+    const profesor = profesores[index];
 
-    // Mostrar los cursos que imparte
-    let listaCursos = document.getElementById("modal-cursos");
-    listaCursos.innerHTML = "";
-    profesor.cursosQueImparte.forEach(function (curso) {
-        let li = document.createElement("li");
-        li.innerText = curso;
-        listaCursos.appendChild(li);
-    });
+    document.getElementById("modalNombre").textContent = profesor.nombre;
+    document.getElementById("modalFoto").src = profesor.foto;
+    document.getElementById("modalFoto").alt = profesor.nombre;
+    document.getElementById("modalEspecialidad").textContent = "Especialidad: " + profesor.especialidad;
+    document.getElementById("modalDescripcion").textContent = profesor.descripcion;
+    document.getElementById("modalCorreo").textContent = "Correo: " + profesor.correo;
+    document.getElementById("modalCursos").textContent = "Cursos que imparte: " + profesor.cursosQueImparte;
 
-    // Mostrar el modal
-    let modal = document.getElementById("modal-profesor");
-    modal.style.display = "flex";
+    const modalProfesor = new bootstrap.Modal(document.getElementById("modalProfesor"));
+    modalProfesor.show();
 }
 
-// Función que cierra el modal
-function cerrarModal() {
-    let modal = document.getElementById("modal-profesor");
-    modal.style.display = "none";
-}
-*/
+mostrarProfesores();

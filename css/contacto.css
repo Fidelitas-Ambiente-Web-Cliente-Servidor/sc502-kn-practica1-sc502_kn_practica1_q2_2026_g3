@@ -1,113 +1,104 @@
-/* Contacto - NovaTech Academy */
-
-.contenedor {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Encabezado */
-.encabezado {
-    background-color: #0A1F44;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.encabezado h1 {
+main {
     color: white;
-    margin-bottom: 10px;
 }
 
-.encabezado p {
-    color: #c8d8f0;
+/* Título */
+h1, h2 {
+    color: var(--color-ternary);
 }
 
-/* Layout */
-.contact-layout {
-    display: flex;
-    gap: 20px;
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 0 20px;
+/* Descripción del header */
+.descripcion {
+    max-width: 750px;
+    color: #dddddd;
 }
 
-.lateral {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Tarjeta */
-.card {
-    background-color: white;
-    border: 1px solid #dde3ed;
-    border-radius: 8px;
+/* Contenedor del formulario */
+.contact-form {
+    background-color: #161616;
     padding: 20px;
-    flex: 1.5;
+    border-radius: 10px;
+    border: 1px solid var(--color-border-gray);
 }
 
-.card h2 {
-    color: #0A1F44;
-    font-size: 1rem;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #dde3ed;
+/* Inputs */
+.contact-form .form-control {
+    background-color: transparent;
+    border: 1px solid var(--color-border-gray);
+    color: white;
 }
 
-/* Formulario */
-.campo {
-    margin-bottom: 12px;
+.contact-form .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(5, 242, 218, 0.25);
 }
 
-.campo label {
-    display: block;
+/* Labels */
+.contact-form .form-label {
+    color: #dddddd;
+}
+
+/* Botón */
+.contact-form button {
+    background-color: var(--color-ternary);
+    border: none;
+    color: black;
     font-weight: bold;
-    font-size: 0.85rem;
-    margin-bottom: 4px;
 }
 
-.campo input,
-.campo textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-family: inherit;
+.contact-form button:hover {
+    background-color: var(--color-prymary);
+    color: white;
 }
 
-.campo textarea {
-    resize: vertical;
+/* Información de contacto */
+.contact-info {
+    margin-top: 40px;
 }
 
-/* Info de contacto */
-.info-lista {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.contact-info p {
+    color: #dddddd;
 }
 
-.info-lista li {
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-    font-size: 0.9rem;
-    color: #4F4F4F;
+/* Mapa */
+.map-container h2 {
+    margin-top: 40px;
 }
 
-/* Footer */
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 30px;
+.map {
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .contact-layout {
-        flex-direction: column;
-    }
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
+
+main{
+    flex:1;
+}
+
+/*practica2*/
+
+.mensaje-error{
+    display:block;
+    color:#ff6b6b;
+    margin-top:5px;
+    font-size:0.9rem;
+}
+
+.mensaje-exito{
+    margin-top:15px;
+    color:#05f2da;
+    font-weight:bold;
+}
+
+.input-valido{
+    border:1px solid #05f2da !important;
+}
+
+.input-invalido{
+    border:1px solid #ff6b6b !important;
+}
+

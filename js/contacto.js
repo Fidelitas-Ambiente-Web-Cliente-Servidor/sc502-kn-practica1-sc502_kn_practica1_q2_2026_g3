@@ -1,158 +1,221 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form        = document.getElementById("form-contacto");
-  const inputNombre = document.getElementById("nombre");
-  const inputCorreo = document.getElementById("correo");
-  const inputTel    = document.getElementById("telefono");
-  const inputAsunto = document.getElementById("asunto");
-  const inputMsg    = document.getElementById("mensaje");
-  const btnEnviar   = document.getElementById("btn-enviar");
-  const msgExito    = document.getElementById("mensaje-exito");
+// Obtener elementos del DOM
 
-  const errorNombre = document.getElementById("error-nombre");
-  const errorCorreo = document.getElementById("error-correo");
-  const errorTel    = document.getElementById("error-telefono");
-  const errorAsunto = document.getElementById("error-asunto");
-  const errorMsg    = document.getElementById("error-mensaje");
+const formulario = document.getElementById("formContacto");
 
-  const estadoCampos = {
-    nombre:   false,
-    correo:   false,
-    telefono: false,
-    asunto:   false,
-    mensaje:  false
-  };
+const nombre = document.getElementById("nombre");
+const email = document.getElementById("email");
+const telefono = document.getElementById("telefono");
+const asunto = document.getElementById("asunto");
+const mensaje = document.getElementById("mensaje");
 
-  function actualizarEstadoBoton() {
-    const todosValidos = Object.values(estadoCampos).every((valor) => valor === true);
-    btnEnviar.disabled = !todosValidos;
-  }
+const btnEnviar = document.getElementById("btnEnviar");
 
-  function validarNombre() {
-    const valor = inputNombre.value.trim();
-    const soloLetrasEspacios = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/;
+const errorNombre = document.getElementById("errorNombre");
+const errorEmail = document.getElementById("errorEmail");
+const errorTelefono = document.getElementById("errorTelefono");
+const errorAsunto = document.getElementById("errorAsunto");
+const errorMensaje = document.getElementById("errorMensaje");
+
+const mensajeExito = document.getElementById("mensajeExito");
+
+
+// Validar nombre
+
+function validarNombre() {
+
+    const valor = nombre.value.trim();
+
+    const regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
 
     if (valor.length < 5) {
-      errorNombre.textContent = "El nombre debe tener al menos 5 caracteres.";
-      estadoCampos.nombre = false;
-    } else if (!soloLetrasEspacios.test(valor)) {
-      errorNombre.textContent = "El nombre solo puede contener letras y espacios.";
-      estadoCampos.nombre = false;
-    } else {
-      errorNombre.textContent = "";
-      estadoCampos.nombre = true;
+
+        errorNombre.textContent =
+            "Debe contener al menos 5 caracteres";
+
+        nombre.classList.add("input-invalido");
+        nombre.classList.remove("input-valido");
+
+        return false;
     }
 
-    actualizarEstadoBoton();
-  }
+    if (!regex.test(valor)) {
 
-  function validarCorreo() {
-    const valor = inputCorreo.value.trim();
-    const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        errorNombre.textContent =
+            "Solo se permiten letras y espacios";
 
-    if (valor === "") {
-      errorCorreo.textContent = "El correo es obligatorio.";
-      estadoCampos.correo = false;
-    } else if (!regexCorreo.test(valor)) {
-      errorCorreo.textContent = "El formato del correo no es válido.";
-      estadoCampos.correo = false;
-    } else {
-      errorCorreo.textContent = "";
-      estadoCampos.correo = true;
+        nombre.classList.add("input-invalido");
+        nombre.classList.remove("input-valido");
+
+        return false;
     }
 
-    actualizarEstadoBoton();
-  }
+    errorNombre.textContent = "";
 
-  function validarTelefono() {
-    const valor = inputTel.value.trim();
-    const soloNumeros = /^[0-9]+$/;
+    nombre.classList.remove("input-invalido");
+    nombre.classList.add("input-valido");
 
-    if (valor === "") {
-      errorTel.textContent = "El teléfono es obligatorio.";
-      estadoCampos.telefono = false;
-    } else if (!soloNumeros.test(valor)) {
-      errorTel.textContent = "El teléfono solo puede contener números.";
-      estadoCampos.telefono = false;
-    } else if (valor.length < 8) {
-      errorTel.textContent = "El teléfono debe tener al menos 8 dígitos.";
-      estadoCampos.telefono = false;
-    } else {
-      errorTel.textContent = "";
-      estadoCampos.telefono = true;
+    return true;
+}
+
+
+// Validar correo
+
+function validarEmail() {
+
+    const regex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!regex.test(email.value.trim())) {
+
+        errorEmail.textContent =
+            "Ingrese un correo válido";
+
+        email.classList.add("input-invalido");
+        email.classList.remove("input-valido");
+
+        return false;
     }
 
-    actualizarEstadoBoton();
-  }
+    errorEmail.textContent = "";
 
-  function validarAsunto() {
-    const valor = inputAsunto.value.trim();
+    email.classList.remove("input-invalido");
+    email.classList.add("input-valido");
 
-    if (valor.length < 3) {
-      errorAsunto.textContent = "El asunto debe tener al menos 3 caracteres.";
-      estadoCampos.asunto = false;
-    } else {
-      errorAsunto.textContent = "";
-      estadoCampos.asunto = true;
+    return true;
+}
+
+
+// Validar teléfono
+
+function validarTelefono() {
+
+    const valor = telefono.value.trim();
+
+    const regex = /^\d+$/;
+
+    if (!regex.test(valor)) {
+
+        errorTelefono.textContent =
+            "Solo se permiten números";
+
+        telefono.classList.add("input-invalido");
+        telefono.classList.remove("input-valido");
+
+        return false;
     }
 
-    actualizarEstadoBoton();
-  }
+    if (valor.length < 8) {
 
-  function validarMensaje() {
-    const valor = inputMsg.value.trim();
+        errorTelefono.textContent =
+            "Debe tener al menos 8 dígitos";
 
-    if (valor.length < 20) {
-      errorMsg.textContent = "El mensaje debe tener al menos 20 caracteres.";
-      estadoCampos.mensaje = false;
-    } else {
-      errorMsg.textContent = "";
-      estadoCampos.mensaje = true;
+        telefono.classList.add("input-invalido");
+        telefono.classList.remove("input-valido");
+
+        return false;
     }
 
-    actualizarEstadoBoton();
-  }
+    errorTelefono.textContent = "";
 
-  inputNombre.addEventListener("input", validarNombre);
-  inputCorreo.addEventListener("input", validarCorreo);
-  inputTel.addEventListener("input", validarTelefono);
-  inputAsunto.addEventListener("input", validarAsunto);
-  inputMsg.addEventListener("input", validarMensaje);
+    telefono.classList.remove("input-invalido");
+    telefono.classList.add("input-valido");
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+    return true;
+}
 
-    validarNombre();
-    validarCorreo();
-    validarTelefono();
-    validarAsunto();
-    validarMensaje();
 
-    const todosValidos = Object.values(estadoCampos).every((valor) => valor === true);
+// Validar asunto
 
-    if (todosValidos) {
-      msgExito.textContent = "Mensaje enviado correctamente. ¡Gracias por contactarnos!";
-      msgExito.style.display = "block";
+function validarAsunto() {
 
-      form.reset();
+    if (asunto.value.trim().length < 3) {
 
-      estadoCampos.nombre   = false;
-      estadoCampos.correo   = false;
-      estadoCampos.telefono = false;
-      estadoCampos.asunto   = false;
-      estadoCampos.mensaje  = false;
+        errorAsunto.textContent =
+            "Debe contener al menos 3 caracteres";
 
-      errorNombre.textContent = "";
-      errorCorreo.textContent = "";
-      errorTel.textContent    = "";
-      errorAsunto.textContent = "";
-      errorMsg.textContent    = "";
+        asunto.classList.add("input-invalido");
+        asunto.classList.remove("input-valido");
 
-      actualizarEstadoBoton();
-    } else {
-      msgExito.textContent = "";
-      msgExito.style.display = "none";
+        return false;
     }
-  });
 
-  actualizarEstadoBoton();
+    errorAsunto.textContent = "";
+
+    asunto.classList.remove("input-invalido");
+    asunto.classList.add("input-valido");
+
+    return true;
+}
+
+
+// Validar mensaje
+
+function validarMensaje() {
+
+    if (mensaje.value.trim().length < 20) {
+
+        errorMensaje.textContent =
+            "Debe contener al menos 20 caracteres";
+
+        mensaje.classList.add("input-invalido");
+        mensaje.classList.remove("input-valido");
+
+        return false;
+    }
+
+    errorMensaje.textContent = "";
+
+    mensaje.classList.remove("input-invalido");
+    mensaje.classList.add("input-valido");
+
+    return true;
+}
+
+
+// Verificar todo el formulario
+
+function verificarFormulario() {
+
+    const formularioValido =
+        validarNombre() &&
+        validarEmail() &&
+        validarTelefono() &&
+        validarAsunto() &&
+        validarMensaje();
+
+    btnEnviar.disabled = !formularioValido;
+}
+
+
+// Eventos en tiempo real
+
+nombre.addEventListener("input", verificarFormulario);
+
+email.addEventListener("input", verificarFormulario);
+
+telefono.addEventListener("input", verificarFormulario);
+
+asunto.addEventListener("input", verificarFormulario);
+
+mensaje.addEventListener("input", verificarFormulario);
+
+
+// Envío
+
+formulario.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    mensajeExito.textContent =
+        "Formulario enviado correctamente.";
+
+    formulario.reset();
+
+    btnEnviar.disabled = true;
+
+    document
+        .querySelectorAll(".input-valido")
+        .forEach(input => {
+            input.classList.remove("input-valido");
+        });
 });

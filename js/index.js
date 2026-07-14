@@ -1,99 +1,83 @@
+// Array de categoria
+const categoria = ["Desarrollo Web", "Programacion", "Datos"];
+
+// Creacion de array de tarjetas de cursos
 const cursos = [
-  {
-    nombre: "Data Science con Python",
-    descripcion:
-      "Aprende a analizar datos, crear visualizaciones y construir modelos predictivos usando pandas, matplotlib y scikit-learn.",
-    imagen: "images/cursos/data-science.jpg",
-    categoria: "Data Science",
-  },
-  {
-    nombre: "Inteligencia Artificial Aplicada",
-    descripcion:
-      "Domina redes neuronales, procesamiento de lenguaje natural y visión por computadora con TensorFlow y PyTorch.",
-    imagen: "images/cursos/inteligencia-artificial.jpg",
-    categoria: "Inteligencia Artificial",
-  },
-  {
-    nombre: "Desarrollo Full Stack",
-    descripcion:
-      "Construye aplicaciones web completas con HTML, CSS, JavaScript, Node.js y bases de datos relacionales y NoSQL.",
-    imagen: "images/cursos/full-stack.jpg",
-    categoria: "Desarrollo Web",
-  },
-  {
-    nombre: "Ciberseguridad Ofensiva y Defensiva",
-    descripcion:
-      "Comprende las principales amenazas digitales y aprende a proteger sistemas, redes y aplicaciones ante ataques reales.",
-    imagen: "images/cursos/ciberseguridad.jpg",
-    categoria: "Ciberseguridad",
-  },
+    {
+        nombre: "Desarrollo web",
+        descripcion: "Este curso aprenderemos los fundamentos del desarrollo web, con buenas practicas de diseño y programación.",
+        imagen: "./images/web.png",
+        categoria: categoria[0]
+    },
+    {
+        nombre: "Programación en Python",
+        descripcion: "En este curso aprenderás conceptos fundamentales de la programación en Python.",
+        imagen: "./images/pyton.png",
+        categoria: categoria[1]
+    },
+    {
+        nombre: "Base de Datos SQL",
+        descripcion: "En este curso aprenderás conceptos fundamentales en la creacion y gestion de bases de datos MySQL",
+        imagen: "./images/mysql.png",
+        categoria: categoria[2]
+    }
 ];
 
-function crearTarjetaCurso(curso) {
-  // Contenedor principal de la tarjeta
-  const tarjeta = document.createElement("div");
-  tarjeta.classList.add("curso-tarjeta");
- 
-  // Imagen
-  const imagen = document.createElement("img");
-  imagen.src = curso.imagen;
-  imagen.alt = curso.nombre;
-  imagen.classList.add("curso-imagen");
- 
-  // Cuerpo de texto
-  const cuerpo = document.createElement("div");
-  cuerpo.classList.add("curso-cuerpo");
- 
-  // Etiqueta de categoría
-  const categoria = document.createElement("span");
-  categoria.classList.add("curso-categoria");
-  categoria.textContent = curso.categoria;
- 
-  // Nombre del curso
-  const nombre = document.createElement("h3");
-  nombre.classList.add("curso-nombre");
-  nombre.textContent = curso.nombre;
- 
-  // Descripción
-  const descripcion = document.createElement("p");
-  descripcion.classList.add("curso-descripcion");
-  descripcion.textContent = curso.descripcion;
- 
-  // Botón CTA
-  const boton = document.createElement("a");
-  boton.href = "cursos.html";
-  boton.classList.add("btn-acento", "curso-boton");
-  boton.textContent = "Ver programa";
- 
-  // Ensamblar: cuerpo
-  cuerpo.appendChild(categoria);
-  cuerpo.appendChild(nombre);
-  cuerpo.appendChild(descripcion);
-  cuerpo.appendChild(boton);
- 
-  // Ensamblar: tarjeta completa
-  tarjeta.appendChild(imagen);
-  tarjeta.appendChild(cuerpo);
- 
-  return tarjeta;
+// Agregando el evento cuando el documento se cargue
+document.addEventListener("DOMContentLoaded", function() {
+    let contenedorCursos = document.getElementById("container-cursos");
+
+    mostrarCursosDestacados(cursos, contenedorCursos);
+});
+
+// Funcion para agregar las tarjetas
+function mostrarCursosDestacados (listaCursos, contenedorPadre) {
+
+    for (let index = 0; index < listaCursos.length; index++) {
+        const cursoActual = listaCursos[index];
+        
+        // Creacion de los elemento html, clases y atributos y contenido
+        const article = document.createElement("article");
+        article.classList.add("tarjeta", "tarjeta-curso");
+
+        const imagen = document.createElement("img");
+        imagen.classList.add("logo-curso");
+        imagen.src = cursoActual.imagen;
+        imagen.alt = "logo del curso";
+
+        const titulo = document.createElement("h3");
+        titulo.classList.add("curso-titulo");
+        titulo.textContent = cursoActual.nombre;
+        
+        const contenedorCategoria = document.createElement("div");
+        contenedorCategoria.classList.add("contenedor-categoria");
+
+        const spanTituloCategoria = document.createElement("span");
+        spanTituloCategoria.classList.add("titulo-categoria");
+        spanTituloCategoria.textContent = "Categoria: "
+
+        const spanTipoCategoria = document.createElement("span");
+        spanTipoCategoria.textContent = cursoActual.categoria;
+
+        const parrafoDescripcion = document.createElement("p");
+        parrafoDescripcion.classList.add("curso-descripcion")
+        parrafoDescripcion.textContent = cursoActual.descripcion;
+
+        const boton = document.createElement("a");
+        boton.classList.add("boton", "boton-curso")
+        boton.textContent = "Ver Curso"
+        boton.href= "";
+
+        // Creacion de la estructura
+        contenedorCategoria.appendChild(spanTituloCategoria);
+        contenedorCategoria.appendChild(spanTipoCategoria);
+
+        article.appendChild(imagen);
+        article.appendChild(titulo);
+        article.appendChild(contenedorCategoria);
+        article.appendChild(parrafoDescripcion);
+        article.appendChild(boton);
+
+        contenedorPadre.appendChild(article);
+    }
 }
- 
-// --- 3. FUNCIÓN: renderizar todos los cursos en el contenedor del DOM ---
- 
-function renderizarCursos() {
-  const contenedor = document.getElementById("cursos-grid");
- 
-  if (!contenedor) {
-    console.error('No se encontró el elemento con id "cursos-grid".');
-    return;
-  }
- 
-  cursos.forEach((curso) => {
-    const tarjeta = crearTarjetaCurso(curso);
-    contenedor.appendChild(tarjeta);
-  });
-}
- 
-// --- 4. EJECUTAR cuando el DOM esté listo ---
- 
-document.addEventListener("DOMContentLoaded", renderizarCursos);
